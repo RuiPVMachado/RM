@@ -9,6 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="MessageBox.cs" />
+    <Compile Remove="MessageBox1.cs" />
+    <Compile Remove="MessageBoxBase.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
 

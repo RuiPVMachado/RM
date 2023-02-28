@@ -10,16 +10,12 @@ namespace RM
 {
     internal class MainClass
     {
-        public static readonly string con_string = "Data Source=DESKTOP-066KIFU\\SQLEXPRESS; Initial Catalog=RM; Persist Security Info-True; User ID=admin; Password=123;";
-        public static SqlConnection con = new SqlConnection(con_string);
-
-
+        public static SqlConnection con = new SqlConnection("Data Source=DESKTOP-066KIFU\\SQLEXPRESS;Initial Catalog=RM1;Integrated Security=True;Pooling=False; User ID=admin; Password=123;");
         //metodo para dar check ao username 
-
         public static bool IsValidUser(string user, string pass)
         {
            bool isValid = false;
-            string qry = @"Select * from users where username = '" + user + "' and upass = '" + pass + "' ";
+           string qry = @"Select * from users where username = '" + user + "' and upass = '" + pass + "' ";
            SqlCommand cmd = new SqlCommand(qry, con);
            DataTable dt = new DataTable();
            SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -29,8 +25,6 @@ namespace RM
             {
                 isValid= true;
             }
-           
-
             return isValid;
         }
     }

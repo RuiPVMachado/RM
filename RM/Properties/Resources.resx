@@ -121,4 +121,13 @@
   <data name="0c3b3adb1a7530892e55ef36d3be6cb8" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\0c3b3adb1a7530892e55ef36d3be6cb8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="png-transparent-fork-steak-knife-drawing-table-knives-garfo-kitchen-bedroom-fork" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\png-transparent-fork-steak-knife-drawing-table-knives-garfo-kitchen-bedroom-fork.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="png-transparent-knife-fork-logo-kitchen-knives-tool-knife" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\png-transparent-knife-fork-logo-kitchen-knives-tool-knife.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="png-transparent-fork-steak-knife-drawing-table-knives-garfo-kitchen-bedroom-fork-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\png-transparent-fork-steak-knife-drawing-table-knives-garfo-kitchen-bedroom-fork-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
