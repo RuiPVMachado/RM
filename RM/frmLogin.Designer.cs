@@ -37,7 +37,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -87,17 +86,16 @@
             // txtUser
             // 
             this.txtUser.Location = new System.Drawing.Point(36, 288);
-            this.txtUser.Multiline = true;
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(308, 39);
+            this.txtUser.Size = new System.Drawing.Size(308, 30);
             this.txtUser.TabIndex = 0;
             // 
             // txtPass
             // 
             this.txtPass.Location = new System.Drawing.Point(36, 411);
-            this.txtPass.Multiline = true;
             this.txtPass.Name = "txtPass";
-            this.txtPass.Size = new System.Drawing.Size(308, 39);
+            this.txtPass.PasswordChar = '*';
+            this.txtPass.Size = new System.Drawing.Size(308, 30);
             this.txtPass.TabIndex = 1;
             this.txtPass.UseSystemPasswordChar = true;
             // 
@@ -169,6 +167,5 @@
         private Button btnExit;
         private PictureBox pictureBox1;
         private Label label3;
-        private ColorDialog colorDialog1;
     }
 }

@@ -73,6 +73,16 @@ namespace RM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap house {
+            get {
+                object obj = ResourceManager.GetObject("house", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap png_transparent_fork_steak_knife_drawing_table_knives_garfo_kitchen_bedroom_fork {
             get {
                 object obj = ResourceManager.GetObject("png-transparent-fork-steak-knife-drawing-table-knives-garfo-kitchen-bedroom-fork", resourceCulture);
