@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace RM
 {
-    public partial class frmMain : Form
+    public partial class frmMain : KryptonForm
     {
         public frmMain()
         {
@@ -21,5 +22,6 @@ namespace RM
         {
             Application.Exit();
         }
+
     }
 }
