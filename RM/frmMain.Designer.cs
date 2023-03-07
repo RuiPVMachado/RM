@@ -30,22 +30,22 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             panel1 = new Panel();
-            button10 = new Button();
-            button9 = new Button();
-            button8 = new Button();
-            button7 = new Button();
-            button6 = new Button();
-            button5 = new Button();
-            button4 = new Button();
-            button1 = new Button();
+            btnSettings = new Button();
+            btnKitchen = new Button();
+            btnPOS = new Button();
+            btnStaff = new Button();
+            btnTable = new Button();
+            brnProducts = new Button();
+            btnCategory = new Button();
+            btnHome = new Button();
             label1 = new Label();
             pictureBox1 = new PictureBox();
-            panel2 = new Panel();
             panel3 = new Panel();
             lblUser = new Label();
             button3 = new Button();
             button2 = new Button();
             btnExit = new Button();
+            CenterPanel = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
@@ -53,15 +53,15 @@
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.Highlight;
-            panel1.Controls.Add(button10);
-            panel1.Controls.Add(button9);
-            panel1.Controls.Add(button8);
-            panel1.Controls.Add(button7);
-            panel1.Controls.Add(button6);
-            panel1.Controls.Add(button5);
-            panel1.Controls.Add(button4);
-            panel1.Controls.Add(button1);
+            panel1.BackColor = Color.FromArgb(22, 114, 184);
+            panel1.Controls.Add(btnSettings);
+            panel1.Controls.Add(btnKitchen);
+            panel1.Controls.Add(btnPOS);
+            panel1.Controls.Add(btnStaff);
+            panel1.Controls.Add(btnTable);
+            panel1.Controls.Add(brnProducts);
+            panel1.Controls.Add(btnCategory);
+            panel1.Controls.Add(btnHome);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Left;
@@ -70,133 +70,136 @@
             panel1.Size = new Size(287, 778);
             panel1.TabIndex = 0;
             // 
-            // button10
+            // btnSettings
             // 
-            button10.AccessibleRole = AccessibleRole.RadioButton;
-            button10.AutoEllipsis = true;
-            button10.BackColor = Color.Transparent;
-            button10.FlatStyle = FlatStyle.Flat;
-            button10.Image = (Image)resources.GetObject("button10.Image");
-            button10.ImageAlign = ContentAlignment.MiddleRight;
-            button10.Location = new Point(54, 769);
-            button10.Name = "button10";
-            button10.Size = new Size(188, 64);
-            button10.TabIndex = 8;
-            button10.Text = "Definições";
-            button10.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button10.UseVisualStyleBackColor = false;
+            btnSettings.AccessibleRole = AccessibleRole.RadioButton;
+            btnSettings.AutoEllipsis = true;
+            btnSettings.BackColor = Color.Transparent;
+            btnSettings.FlatStyle = FlatStyle.Flat;
+            btnSettings.Image = (Image)resources.GetObject("btnSettings.Image");
+            btnSettings.ImageAlign = ContentAlignment.MiddleRight;
+            btnSettings.Location = new Point(54, 769);
+            btnSettings.Name = "btnSettings";
+            btnSettings.Size = new Size(188, 64);
+            btnSettings.TabIndex = 8;
+            btnSettings.Text = "Definições";
+            btnSettings.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnSettings.UseVisualStyleBackColor = false;
             // 
-            // button9
+            // btnKitchen
             // 
-            button9.AccessibleRole = AccessibleRole.RadioButton;
-            button9.AutoEllipsis = true;
-            button9.BackColor = Color.Transparent;
-            button9.FlatStyle = FlatStyle.Flat;
-            button9.Image = (Image)resources.GetObject("button9.Image");
-            button9.ImageAlign = ContentAlignment.MiddleRight;
-            button9.Location = new Point(54, 684);
-            button9.Name = "button9";
-            button9.Size = new Size(188, 64);
-            button9.TabIndex = 7;
-            button9.Text = "Cozinha";
-            button9.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button9.UseVisualStyleBackColor = false;
+            btnKitchen.AccessibleRole = AccessibleRole.RadioButton;
+            btnKitchen.AutoEllipsis = true;
+            btnKitchen.BackColor = Color.Transparent;
+            btnKitchen.FlatStyle = FlatStyle.Flat;
+            btnKitchen.Image = (Image)resources.GetObject("btnKitchen.Image");
+            btnKitchen.ImageAlign = ContentAlignment.MiddleRight;
+            btnKitchen.Location = new Point(54, 684);
+            btnKitchen.Name = "btnKitchen";
+            btnKitchen.Size = new Size(188, 64);
+            btnKitchen.TabIndex = 7;
+            btnKitchen.Text = "Cozinha";
+            btnKitchen.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnKitchen.UseVisualStyleBackColor = false;
             // 
-            // button8
+            // btnPOS
             // 
-            button8.AccessibleRole = AccessibleRole.RadioButton;
-            button8.AutoEllipsis = true;
-            button8.BackColor = Color.Transparent;
-            button8.FlatStyle = FlatStyle.Flat;
-            button8.Image = (Image)resources.GetObject("button8.Image");
-            button8.ImageAlign = ContentAlignment.MiddleRight;
-            button8.Location = new Point(54, 598);
-            button8.Name = "button8";
-            button8.Size = new Size(188, 64);
-            button8.TabIndex = 6;
-            button8.Text = "POS";
-            button8.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button8.UseVisualStyleBackColor = false;
+            btnPOS.AccessibleRole = AccessibleRole.RadioButton;
+            btnPOS.AutoEllipsis = true;
+            btnPOS.BackColor = Color.Transparent;
+            btnPOS.FlatStyle = FlatStyle.Flat;
+            btnPOS.Image = (Image)resources.GetObject("btnPOS.Image");
+            btnPOS.ImageAlign = ContentAlignment.MiddleRight;
+            btnPOS.Location = new Point(54, 598);
+            btnPOS.Name = "btnPOS";
+            btnPOS.Size = new Size(188, 64);
+            btnPOS.TabIndex = 6;
+            btnPOS.Text = "POS";
+            btnPOS.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnPOS.UseVisualStyleBackColor = false;
             // 
-            // button7
+            // btnStaff
             // 
-            button7.AccessibleRole = AccessibleRole.RadioButton;
-            button7.AutoEllipsis = true;
-            button7.BackColor = Color.Transparent;
-            button7.FlatStyle = FlatStyle.Flat;
-            button7.Image = (Image)resources.GetObject("button7.Image");
-            button7.ImageAlign = ContentAlignment.MiddleRight;
-            button7.Location = new Point(54, 507);
-            button7.Name = "button7";
-            button7.Size = new Size(188, 64);
-            button7.TabIndex = 3;
-            button7.Text = "Staff";
-            button7.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button7.UseVisualStyleBackColor = false;
+            btnStaff.AccessibleRole = AccessibleRole.RadioButton;
+            btnStaff.AutoEllipsis = true;
+            btnStaff.BackColor = Color.Transparent;
+            btnStaff.FlatStyle = FlatStyle.Flat;
+            btnStaff.Image = (Image)resources.GetObject("btnStaff.Image");
+            btnStaff.ImageAlign = ContentAlignment.MiddleRight;
+            btnStaff.Location = new Point(54, 507);
+            btnStaff.Name = "btnStaff";
+            btnStaff.Size = new Size(188, 64);
+            btnStaff.TabIndex = 3;
+            btnStaff.Text = "Staff";
+            btnStaff.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnStaff.UseVisualStyleBackColor = false;
             // 
-            // button6
+            // btnTable
             // 
-            button6.AccessibleRole = AccessibleRole.RadioButton;
-            button6.AutoEllipsis = true;
-            button6.BackColor = Color.Transparent;
-            button6.FlatStyle = FlatStyle.Flat;
-            button6.Image = (Image)resources.GetObject("button6.Image");
-            button6.ImageAlign = ContentAlignment.MiddleRight;
-            button6.Location = new Point(54, 417);
-            button6.Name = "button6";
-            button6.Size = new Size(188, 64);
-            button6.TabIndex = 5;
-            button6.Text = "Mesas";
-            button6.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button6.UseVisualStyleBackColor = false;
+            btnTable.AccessibleRole = AccessibleRole.RadioButton;
+            btnTable.AutoEllipsis = true;
+            btnTable.BackColor = Color.Transparent;
+            btnTable.FlatStyle = FlatStyle.Flat;
+            btnTable.Image = (Image)resources.GetObject("btnTable.Image");
+            btnTable.ImageAlign = ContentAlignment.MiddleRight;
+            btnTable.Location = new Point(54, 417);
+            btnTable.Name = "btnTable";
+            btnTable.Size = new Size(188, 64);
+            btnTable.TabIndex = 5;
+            btnTable.Text = "Mesas";
+            btnTable.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnTable.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // brnProducts
             // 
-            button5.AccessibleRole = AccessibleRole.RadioButton;
-            button5.AutoEllipsis = true;
-            button5.BackColor = Color.Transparent;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Image = (Image)resources.GetObject("button5.Image");
-            button5.ImageAlign = ContentAlignment.MiddleRight;
-            button5.Location = new Point(54, 328);
-            button5.Name = "button5";
-            button5.Size = new Size(188, 64);
-            button5.TabIndex = 4;
-            button5.Text = "Produtos";
-            button5.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button5.UseVisualStyleBackColor = false;
+            brnProducts.AccessibleRole = AccessibleRole.RadioButton;
+            brnProducts.AutoEllipsis = true;
+            brnProducts.BackColor = Color.Transparent;
+            brnProducts.FlatStyle = FlatStyle.Flat;
+            brnProducts.Image = (Image)resources.GetObject("brnProducts.Image");
+            brnProducts.ImageAlign = ContentAlignment.MiddleRight;
+            brnProducts.Location = new Point(54, 328);
+            brnProducts.Name = "brnProducts";
+            brnProducts.Size = new Size(188, 64);
+            brnProducts.TabIndex = 4;
+            brnProducts.Text = "Produtos";
+            brnProducts.TextImageRelation = TextImageRelation.ImageBeforeText;
+            brnProducts.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // btnCategory
             // 
-            button4.AccessibleRole = AccessibleRole.RadioButton;
-            button4.AutoEllipsis = true;
-            button4.BackColor = Color.Transparent;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Image = (Image)resources.GetObject("button4.Image");
-            button4.ImageAlign = ContentAlignment.MiddleRight;
-            button4.Location = new Point(54, 243);
-            button4.Name = "button4";
-            button4.Size = new Size(188, 64);
-            button4.TabIndex = 3;
-            button4.Text = "Categorias";
-            button4.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button4.UseVisualStyleBackColor = false;
+            btnCategory.AccessibleRole = AccessibleRole.RadioButton;
+            btnCategory.AutoEllipsis = true;
+            btnCategory.BackColor = Color.Transparent;
+            btnCategory.FlatStyle = FlatStyle.Flat;
+            btnCategory.Image = (Image)resources.GetObject("btnCategory.Image");
+            btnCategory.ImageAlign = ContentAlignment.MiddleRight;
+            btnCategory.Location = new Point(54, 246);
+            btnCategory.Name = "btnCategory";
+            btnCategory.Size = new Size(188, 60);
+            btnCategory.TabIndex = 3;
+            btnCategory.Text = "Categorias";
+            btnCategory.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnCategory.UseVisualStyleBackColor = true;
+            btnCategory.Click += btnCategory_Click;
             // 
-            // button1
+            // btnHome
             // 
-            button1.AccessibleRole = AccessibleRole.RadioButton;
-            button1.AutoEllipsis = true;
-            button1.BackColor = Color.Transparent;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.ImageAlign = ContentAlignment.MiddleRight;
-            button1.Location = new Point(54, 155);
-            button1.Name = "button1";
-            button1.Size = new Size(188, 64);
-            button1.TabIndex = 2;
-            button1.Text = "Home";
-            button1.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button1.UseVisualStyleBackColor = false;
+            btnHome.AccessibleRole = AccessibleRole.RadioButton;
+            btnHome.AutoEllipsis = true;
+            btnHome.BackColor = Color.Transparent;
+            btnHome.FlatStyle = FlatStyle.Flat;
+            btnHome.ForeColor = SystemColors.ControlText;
+            btnHome.Image = (Image)resources.GetObject("btnHome.Image");
+            btnHome.ImageAlign = ContentAlignment.MiddleRight;
+            btnHome.Location = new Point(54, 164);
+            btnHome.Name = "btnHome";
+            btnHome.Size = new Size(188, 58);
+            btnHome.TabIndex = 2;
+            btnHome.Text = "Home";
+            btnHome.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnHome.UseVisualStyleBackColor = true;
+            btnHome.Click += btnHome_Click;
             // 
             // label1
             // 
@@ -218,17 +221,9 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // panel2
-            // 
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(287, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1090, 778);
-            panel2.TabIndex = 1;
-            // 
             // panel3
             // 
-            panel3.BackColor = SystemColors.ActiveCaption;
+            panel3.BackColor = Color.Gainsboro;
             panel3.Controls.Add(lblUser);
             panel3.Controls.Add(button3);
             panel3.Controls.Add(button2);
@@ -283,19 +278,28 @@
             btnExit.UseVisualStyleBackColor = true;
             btnExit.Click += btnExit_Click;
             // 
+            // CenterPanel
+            // 
+            CenterPanel.Dock = DockStyle.Fill;
+            CenterPanel.Location = new Point(287, 69);
+            CenterPanel.Name = "CenterPanel";
+            CenterPanel.Size = new Size(1090, 709);
+            CenterPanel.TabIndex = 3;
+            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1377, 778);
+            Controls.Add(CenterPanel);
             Controls.Add(panel3);
-            Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmMain";
             Text = "frmMain";
             WindowState = FormWindowState.Maximized;
+            Load += frmMain_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel3.ResumeLayout(false);
@@ -306,21 +310,21 @@
         #endregion
 
         private Panel panel1;
-        private Panel panel2;
         private Panel panel3;
         private Button button3;
         private Button button2;
         private Button btnExit;
         private PictureBox pictureBox1;
         private Label label1;
-        private Button button1;
-        private Button button10;
-        private Button button9;
-        private Button button8;
-        private Button button7;
-        private Button button6;
-        private Button button5;
-        private Button button4;
+        private Button btnHome;
+        private Button btnSettings;
+        private Button btnKitchen;
+        private Button btnPOS;
+        private Button btnStaff;
+        private Button btnTable;
+        private Button brnProducts;
+        private Button btnCategory;
         private Label lblUser;
+        private Panel CenterPanel;
     }
 }

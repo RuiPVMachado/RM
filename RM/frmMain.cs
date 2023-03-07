@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RM.View;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,10 +18,35 @@ namespace RM
             InitializeComponent();
         }
 
+        //metodo para adicionar controlos no mainform
+        public void AddControls(Form f)
+        {
+            CenterPanel.Controls.Clear();
+            f.Dock = DockStyle.Fill;
+            f.TopLevel = false;
+            CenterPanel.Controls.Add(f);
+            f.Show();
+        }
+
+
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            lblUser.Text = MainClass.USER;
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            AddControls(new frmHome());
+        }
+
+        private void btnCategory_Click(object sender, EventArgs e)
+        {
+            AddControls(new frmCategoryView());
+        }
     }
 }
