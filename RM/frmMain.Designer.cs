@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             panel1 = new Panel();
             button10 = new Button();
@@ -46,6 +47,18 @@
             button3 = new Button();
             button2 = new Button();
             btnExit = new Button();
+=======
+            panel1 = new Panel();
+            pictureBox1 = new PictureBox();
+            panel2 = new Panel();
+            panel3 = new Panel();
+            button3 = new Button();
+            button2 = new Button();
+            btnExit = new Button();
+            label1 = new Label();
+            button1 = new Button();
+            button4 = new Button();
+>>>>>>> 7dd1a8ee4bc8e8049213617cdfc0d8324242cf53
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
@@ -54,12 +67,15 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.Highlight;
+<<<<<<< HEAD
             panel1.Controls.Add(button10);
             panel1.Controls.Add(button9);
             panel1.Controls.Add(button8);
             panel1.Controls.Add(button7);
             panel1.Controls.Add(button6);
             panel1.Controls.Add(button5);
+=======
+>>>>>>> 7dd1a8ee4bc8e8049213617cdfc0d8324242cf53
             panel1.Controls.Add(button4);
             panel1.Controls.Add(button1);
             panel1.Controls.Add(label1);
@@ -70,6 +86,7 @@
             panel1.Size = new Size(287, 778);
             panel1.TabIndex = 0;
             // 
+<<<<<<< HEAD
             // button10
             // 
             button10.AccessibleRole = AccessibleRole.RadioButton;
@@ -208,6 +225,8 @@
             label1.TabIndex = 1;
             label1.Text = "POS Restauração";
             // 
+=======
+>>>>>>> 7dd1a8ee4bc8e8049213617cdfc0d8324242cf53
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.png_transparent_fork_steak_knife_drawing_table_knives_garfo_kitchen_bedroom_fork_removebg_preview;
@@ -229,7 +248,10 @@
             // panel3
             // 
             panel3.BackColor = SystemColors.ActiveCaption;
+<<<<<<< HEAD
             panel3.Controls.Add(lblUser);
+=======
+>>>>>>> 7dd1a8ee4bc8e8049213617cdfc0d8324242cf53
             panel3.Controls.Add(button3);
             panel3.Controls.Add(button2);
             panel3.Controls.Add(btnExit);
@@ -238,6 +260,7 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(1090, 69);
             panel3.TabIndex = 2;
+<<<<<<< HEAD
             // 
             // lblUser
             // 
@@ -248,6 +271,8 @@
             lblUser.Size = new Size(65, 28);
             lblUser.TabIndex = 3;
             lblUser.Text = "label2";
+=======
+>>>>>>> 7dd1a8ee4bc8e8049213617cdfc0d8324242cf53
             // 
             // button3
             // 
@@ -282,6 +307,38 @@
             btnExit.Text = "x";
             btnExit.UseVisualStyleBackColor = true;
             btnExit.Click += btnExit_Click;
+<<<<<<< HEAD
+=======
+            // 
+            // label1
+            // 
+            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = SystemColors.HighlightText;
+            label1.Location = new Point(54, 98);
+            label1.Name = "label1";
+            label1.Size = new Size(188, 34);
+            label1.TabIndex = 1;
+            label1.Text = "POS Restauração";
+            // 
+            // button1
+            // 
+            button1.AutoEllipsis = true;
+            button1.Location = new Point(54, 159);
+            button1.Name = "button1";
+            button1.Size = new Size(188, 40);
+            button1.TabIndex = 2;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(54, 219);
+            button4.Name = "button4";
+            button4.Size = new Size(188, 38);
+            button4.TabIndex = 3;
+            button4.Text = "button4";
+            button4.UseVisualStyleBackColor = true;
+>>>>>>> 7dd1a8ee4bc8e8049213617cdfc0d8324242cf53
             // 
             // frmMain
             // 
@@ -299,7 +356,10 @@
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel3.ResumeLayout(false);
+<<<<<<< HEAD
             panel3.PerformLayout();
+=======
+>>>>>>> 7dd1a8ee4bc8e8049213617cdfc0d8324242cf53
             ResumeLayout(false);
         }
 
@@ -314,6 +374,7 @@
         private PictureBox pictureBox1;
         private Label label1;
         private Button button1;
+<<<<<<< HEAD
         private Button button10;
         private Button button9;
         private Button button8;
@@ -322,5 +383,8 @@
         private Button button5;
         private Button button4;
         private Label lblUser;
+=======
+        private Button button4;
+>>>>>>> 7dd1a8ee4bc8e8049213617cdfc0d8324242cf53
     }
 }
