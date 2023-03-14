@@ -47,6 +47,7 @@ namespace RM
         private void btnCategory_Click(object sender, EventArgs e)
         {
             AddControls(new frmCategoryView());
+
         }
     }
 }
