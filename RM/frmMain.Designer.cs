@@ -46,6 +46,16 @@
             button2 = new Button();
             btnExit = new Button();
             CenterPanel = new Panel();
+            panel1 = new Panel();
+            pictureBox1 = new PictureBox();
+            //panel2 = new Panel();
+            panel3 = new Panel();
+            button3 = new Button();
+            button2 = new Button();
+            btnExit = new Button();
+            label1 = new Label();
+            button1 = new Button();
+            button4 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
@@ -62,6 +72,15 @@
             panel1.Controls.Add(brnProducts);
             panel1.Controls.Add(btnCategory);
             panel1.Controls.Add(btnHome);
+            panel1.BackColor = SystemColors.Highlight;
+            panel1.Controls.Add(button10);
+            panel1.Controls.Add(button9);
+            panel1.Controls.Add(button8);
+            panel1.Controls.Add(button7);
+            panel1.Controls.Add(button6);
+            panel1.Controls.Add(button5);
+            panel1.Controls.Add(button4);
+            panel1.Controls.Add(button1);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Left;
@@ -71,6 +90,7 @@
             panel1.TabIndex = 0;
             // 
             // btnSettings
+            // button10
             // 
             btnSettings.AccessibleRole = AccessibleRole.RadioButton;
             btnSettings.AutoEllipsis = true;
@@ -225,6 +245,8 @@
             // 
             panel3.BackColor = Color.Gainsboro;
             panel3.Controls.Add(lblUser);
+            panel3.BackColor = SystemColors.ActiveCaption;
+            panel3.Controls.Add(lblUser);
             panel3.Controls.Add(button3);
             panel3.Controls.Add(button2);
             panel3.Controls.Add(btnExit);
@@ -277,14 +299,42 @@
             btnExit.Text = "x";
             btnExit.UseVisualStyleBackColor = true;
             btnExit.Click += btnExit_Click;
+
             // 
             // CenterPanel
             // 
+
             CenterPanel.Dock = DockStyle.Fill;
             CenterPanel.Location = new Point(287, 69);
             CenterPanel.Name = "CenterPanel";
             CenterPanel.Size = new Size(1090, 709);
             CenterPanel.TabIndex = 3;
+            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = SystemColors.HighlightText;
+            label1.Location = new Point(54, 98);
+            label1.Name = "label1";
+            label1.Size = new Size(188, 34);
+            label1.TabIndex = 1;
+            label1.Text = "POS Restauração";
+            // 
+            // button1
+            // 
+            button1.AutoEllipsis = true;
+            button1.Location = new Point(54, 159);
+            button1.Name = "button1";
+            button1.Size = new Size(188, 40);
+            button1.TabIndex = 2;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(54, 219);
+            button4.Name = "button4";
+            button4.Size = new Size(188, 38);
+            button4.TabIndex = 3;
+            button4.Text = "button4";
+            button4.UseVisualStyleBackColor = true;
             // 
             // frmMain
             // 
@@ -303,6 +353,7 @@
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             panel3.PerformLayout();
             ResumeLayout(false);
         }
@@ -326,5 +377,14 @@
         private Button btnCategory;
         private Label lblUser;
         private Panel CenterPanel;
+        private Button button1;
+        private Button button10;
+        private Button button9;
+        private Button button8;
+        private Button button7;
+        private Button button6;
+        private Button button5;
+        private Button button4;
+
     }
 }
