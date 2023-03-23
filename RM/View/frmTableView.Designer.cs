@@ -1,6 +1,6 @@
 ﻿namespace RM.View
 {
-    partial class frmCategoryView
+    partial class frmTableView
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCategoryView));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTableView));
             dataGridView1 = new DataGridView();
             dgvid = new DataGridViewTextBoxColumn();
             dgvName = new DataGridViewTextBoxColumn();
@@ -41,8 +41,16 @@
             // 
             // label2
             // 
-            label2.Size = new Size(180, 32);
-            label2.Text = "Lista Categorias";
+            label2.Size = new Size(135, 32);
+            label2.Text = "Lista Mesas";
+            // 
+            // label1
+            // 
+            label1.Location = new Point(585, 80);
+            // 
+            // txtSearch
+            // 
+            txtSearch.Location = new Point(585, 105);
             // 
             // dataGridView1
             // 
@@ -61,7 +69,7 @@
             dataGridView1.ColumnHeadersHeight = 40;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dgvid, dgvName, dgvedit, dgvdel });
             dataGridView1.GridColor = Color.FromArgb(231, 229, 255);
-            dataGridView1.Location = new Point(31, 187);
+            dataGridView1.Location = new Point(31, 171);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -75,7 +83,7 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
             dataGridView1.Size = new Size(865, 371);
-            dataGridView1.TabIndex = 4;
+            dataGridView1.TabIndex = 5;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // dgvid
@@ -122,14 +130,15 @@
             dgvdel.Resizable = DataGridViewTriState.False;
             dgvdel.Width = 50;
             // 
-            // frmCategoryView
+            // frmTableView
             // 
-            AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(924, 606);
+            AutoScaleDimensions = new SizeF(9F, 23F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(921, 565);
             Controls.Add(dataGridView1);
-            Name = "frmCategoryView";
-            Text = "frmCategoryView";
-            Load += frmCategoryView_Load;
+            Name = "frmTableView";
+            Text = "frmTableView";
+            Load += frmTableView_Load;
             Controls.SetChildIndex(label1, 0);
             Controls.SetChildIndex(txtSearch, 0);
             Controls.SetChildIndex(btnAdd, 0);

@@ -12,34 +12,32 @@ using System.Windows.Forms;
 
 namespace RM.View
 {
-    public partial class frmCategoryView : SampleView
+    public partial class frmTableView : SampleView
     {
-        public frmCategoryView()
+        public frmTableView()
         {
             InitializeComponent();
         }
-
         public void GetData()
         {
-            string qry = "Select * From category where catName like '%" + txtSearch.Text + "%' ";
+            string qry = "Select * From tables where tName like '%" + txtSearch.Text + "%' ";
             ListBox lb = new ListBox();
             lb.Items.Add(dgvid);
             lb.Items.Add(dgvName);
 
             MainClass.LoadData(qry, dataGridView1, lb);
         }
-
-
-        private void frmCategoryView_Load(object sender, EventArgs e)
+        private void frmTableView_Load(object sender, EventArgs e)
         {
             GetData();
         }
 
         public override void btnAdd_Click(object sender, EventArgs e)
         {
-            //frmCategoryAdd frm = new frmCategoryAdd();
+            //frmTableAdd frm = new frmTableAdd();
             //frm.ShowDialog();
-            MainClass.BlurBackground(new frmCategoryAdd());
+
+            MainClass.BlurBackground(new frmTableAdd());
             GetData();
         }
 
@@ -53,7 +51,7 @@ namespace RM.View
 
             if (dataGridView1.CurrentCell.OwningColumn.Name == "dgvedit")
             {
-                frmCategoryAdd frm = new frmCategoryAdd();
+                frmTableAdd frm = new frmTableAdd();
                 frm.id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["dgvid"].Value);
                 frm.txtName.Text = Convert.ToString(dataGridView1.CurrentRow.Cells["dgvName"].Value);
                 MainClass.BlurBackground(frm);
@@ -65,7 +63,7 @@ namespace RM.View
                 if (dialogResult == DialogResult.Yes)
                 {
                     int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["dgvid"].Value);
-                    string qry = "Delete from category where catID = " + id + " ";
+                    string qry = "Delete from tables where tid = " + id + " ";
                     Hashtable ht = new Hashtable();
                     MainClass.SQL(qry, ht);
                     MessageBox.Show("Eliminado com Sucesso");
