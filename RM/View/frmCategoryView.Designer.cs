@@ -32,6 +32,7 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCategoryView));
             dataGridView1 = new DataGridView();
+            dgvSno = new DataGridViewTextBoxColumn();
             dgvid = new DataGridViewTextBoxColumn();
             dgvName = new DataGridViewTextBoxColumn();
             dgvedit = new DataGridViewImageColumn();
@@ -59,7 +60,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeight = 40;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dgvid, dgvName, dgvedit, dgvdel });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dgvSno, dgvid, dgvName, dgvedit, dgvdel });
             dataGridView1.GridColor = Color.FromArgb(231, 229, 255);
             dataGridView1.Location = new Point(31, 187);
             dataGridView1.Name = "dataGridView1";
@@ -78,23 +79,31 @@
             dataGridView1.TabIndex = 4;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
+            // dgvSno
+            // 
+            dgvSno.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dgvSno.FillWeight = 70F;
+            dgvSno.HeaderText = "Sr#";
+            dgvSno.MinimumWidth = 70;
+            dgvSno.Name = "dgvSno";
+            dgvSno.ReadOnly = true;
+            dgvSno.Width = 70;
+            // 
             // dgvid
             // 
             dgvid.HeaderText = "id";
             dgvid.MinimumWidth = 6;
             dgvid.Name = "dgvid";
             dgvid.ReadOnly = true;
-            dgvid.Resizable = DataGridViewTriState.False;
             dgvid.Width = 125;
             // 
             // dgvName
             // 
-            dgvName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvName.HeaderText = "name";
             dgvName.MinimumWidth = 6;
             dgvName.Name = "dgvName";
             dgvName.ReadOnly = true;
-            dgvName.Resizable = DataGridViewTriState.False;
+            dgvName.Width = 517;
             // 
             // dgvedit
             // 
@@ -106,7 +115,6 @@
             dgvedit.MinimumWidth = 50;
             dgvedit.Name = "dgvedit";
             dgvedit.ReadOnly = true;
-            dgvedit.Resizable = DataGridViewTriState.False;
             dgvedit.Width = 50;
             // 
             // dgvdel
@@ -119,7 +127,6 @@
             dgvdel.MinimumWidth = 50;
             dgvdel.Name = "dgvdel";
             dgvdel.ReadOnly = true;
-            dgvdel.Resizable = DataGridViewTriState.False;
             dgvdel.Width = 50;
             // 
             // frmCategoryView
@@ -143,6 +150,7 @@
         #endregion
 
         private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn dgvSno;
         private DataGridViewTextBoxColumn dgvid;
         private DataGridViewTextBoxColumn dgvName;
         private DataGridViewImageColumn dgvedit;

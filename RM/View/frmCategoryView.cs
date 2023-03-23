@@ -37,9 +37,8 @@ namespace RM.View
 
         public override void btnAdd_Click(object sender, EventArgs e)
         {
-            //frmCategoryAdd frm = new frmCategoryAdd();
-            //frm.ShowDialog();
-            MainClass.BlurBackground(new frmCategoryAdd());
+            frmCategoryAdd frm = new frmCategoryAdd();
+            frm.ShowDialog();
             GetData();
         }
 
@@ -50,32 +49,23 @@ namespace RM.View
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
             if (dataGridView1.CurrentCell.OwningColumn.Name == "dgvedit")
             {
                 frmCategoryAdd frm = new frmCategoryAdd();
                 frm.id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["dgvid"].Value);
                 frm.txtName.Text = Convert.ToString(dataGridView1.CurrentRow.Cells["dgvName"].Value);
-                MainClass.BlurBackground(frm);
+                frm.ShowDialog();
                 GetData();
             }
             if (dataGridView1.CurrentCell.OwningColumn.Name == "dgvdel")
             {
-                DialogResult dialogResult = MessageBox.Show("Tem a certeza?", "Pergunta", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["dgvid"].Value);
-                    string qry = "Delete from category where catID = " + id + " ";
-                    Hashtable ht = new Hashtable();
-                    MainClass.SQL(qry, ht);
-                    MessageBox.Show("Eliminado com Sucesso");
-                    GetData();
-                }
-                else if (dialogResult == DialogResult.No)
-                {
-                    //nao faz nada
-                }
+                int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["dgvid"].Value);
+                string qry = "Delete from category where catID = "+ id + " ";
+                Hashtable ht = new Hashtable();
+                MainClass.SQL(qry, ht);
 
+                MessageBox.Show("Eliminado com Sucesso");
+                GetData();
             }
         }
     }

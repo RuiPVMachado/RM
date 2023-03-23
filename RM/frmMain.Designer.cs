@@ -149,7 +149,6 @@
             btnTable.Text = "Mesas";
             btnTable.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnTable.UseVisualStyleBackColor = false;
-            btnTable.Click += btnTable_Click;
             // 
             // brnProducts
             // 
@@ -333,7 +332,6 @@
         private Button button7;
         private Button button6;
         private Button button5;
-
 
     }
 }
