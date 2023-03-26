@@ -1,6 +1,6 @@
 ﻿namespace RM.View
 {
-    partial class frmTableView
+    partial class frmStaffView
     {
         /// <summary>
         /// Required designer variable.
@@ -30,10 +30,12 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTableView));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStaffView));
             dataGridView1 = new DataGridView();
             dgvid = new DataGridViewTextBoxColumn();
             dgvName = new DataGridViewTextBoxColumn();
+            dgvPhone = new DataGridViewTextBoxColumn();
+            dgvRole = new DataGridViewTextBoxColumn();
             dgvedit = new DataGridViewImageColumn();
             dgvdel = new DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -41,16 +43,16 @@
             // 
             // label2
             // 
-            label2.Size = new Size(135, 32);
-            label2.Text = "Lista Mesas";
+            label2.Size = new Size(150, 32);
+            label2.Text = "Lista de Staff";
             // 
             // label1
             // 
-            label1.Location = new Point(585, 80);
+            label1.Location = new Point(593, 79);
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(585, 105);
+            txtSearch.Location = new Point(593, 105);
             // 
             // dataGridView1
             // 
@@ -67,9 +69,9 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeight = 40;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dgvid, dgvName, dgvedit, dgvdel });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dgvid, dgvName, dgvPhone, dgvRole, dgvedit, dgvdel });
             dataGridView1.GridColor = Color.FromArgb(231, 229, 255);
-            dataGridView1.Location = new Point(44, 162);
+            dataGridView1.Location = new Point(46, 159);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -82,8 +84,8 @@
             dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(826, 380);
-            dataGridView1.TabIndex = 5;
+            dataGridView1.Size = new Size(832, 372);
+            dataGridView1.TabIndex = 6;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // dgvid
@@ -98,11 +100,27 @@
             // dgvName
             // 
             dgvName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvName.HeaderText = "name";
+            dgvName.HeaderText = "Nome";
             dgvName.MinimumWidth = 6;
             dgvName.Name = "dgvName";
             dgvName.ReadOnly = true;
             dgvName.Resizable = DataGridViewTriState.False;
+            // 
+            // dgvPhone
+            // 
+            dgvPhone.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvPhone.HeaderText = "Telemóvel";
+            dgvPhone.MinimumWidth = 6;
+            dgvPhone.Name = "dgvPhone";
+            dgvPhone.ReadOnly = true;
+            // 
+            // dgvRole
+            // 
+            dgvRole.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvRole.HeaderText = "Papel";
+            dgvRole.MinimumWidth = 6;
+            dgvRole.Name = "dgvRole";
+            dgvRole.ReadOnly = true;
             // 
             // dgvedit
             // 
@@ -130,15 +148,15 @@
             dgvdel.Resizable = DataGridViewTriState.False;
             dgvdel.Width = 50;
             // 
-            // frmTableView
+            // frmStaffView
             // 
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(921, 565);
+            ClientSize = new Size(929, 552);
             Controls.Add(dataGridView1);
-            Name = "frmTableView";
-            Text = "frmTableView";
-            Load += frmTableView_Load;
+            Name = "frmStaffView";
+            Text = "frmStaffView";
+            Load += frmStaffView_Load;
             Controls.SetChildIndex(label1, 0);
             Controls.SetChildIndex(txtSearch, 0);
             Controls.SetChildIndex(btnAdd, 0);
@@ -154,6 +172,8 @@
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn dgvid;
         private DataGridViewTextBoxColumn dgvName;
+        private DataGridViewTextBoxColumn dgvPhone;
+        private DataGridViewTextBoxColumn dgvRole;
         private DataGridViewImageColumn dgvedit;
         private DataGridViewImageColumn dgvdel;
     }

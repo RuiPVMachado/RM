@@ -21,7 +21,7 @@ namespace RM
         static frmMain _obj;
         public static frmMain Instance
         {
-            get { if (_obj == null ) { _obj = new frmMain(); } return _obj; }
+            get { if (_obj == null) { _obj = new frmMain(); } return _obj; }
         }
 
         //metodo para adicionar controlos no mainform
@@ -60,6 +60,16 @@ namespace RM
         private void btnTable_Click(object sender, EventArgs e)
         {
             AddControls(new frmTableView());
+        }
+
+        private void btnStaff_Click(object sender, EventArgs e)
+        {
+            AddControls(new frmStaffView());
+        }
+
+        private void brnProducts_Click(object sender, EventArgs e)
+        {
+            AddControls(new frmProductView());
         }
     }
 }

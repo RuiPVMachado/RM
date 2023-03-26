@@ -133,6 +133,7 @@
             btnStaff.Text = "Staff";
             btnStaff.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnStaff.UseVisualStyleBackColor = false;
+            btnStaff.Click += btnStaff_Click;
             // 
             // btnTable
             // 
@@ -166,6 +167,7 @@
             brnProducts.Text = "Produtos";
             brnProducts.TextImageRelation = TextImageRelation.ImageBeforeText;
             brnProducts.UseVisualStyleBackColor = false;
+            brnProducts.Click += brnProducts_Click;
             // 
             // btnCategory
             // 

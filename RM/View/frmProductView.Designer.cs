@@ -1,6 +1,6 @@
 ﻿namespace RM.View
 {
-    partial class frmTableView
+    partial class frmProductView
     {
         /// <summary>
         /// Required designer variable.
@@ -30,10 +30,13 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTableView));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductView));
             dataGridView1 = new DataGridView();
             dgvid = new DataGridViewTextBoxColumn();
             dgvName = new DataGridViewTextBoxColumn();
+            dgvPrice = new DataGridViewTextBoxColumn();
+            dgvcatID = new DataGridViewTextBoxColumn();
+            dgvcat = new DataGridViewTextBoxColumn();
             dgvedit = new DataGridViewImageColumn();
             dgvdel = new DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -41,16 +44,16 @@
             // 
             // label2
             // 
-            label2.Size = new Size(135, 32);
-            label2.Text = "Lista Mesas";
+            label2.Size = new Size(163, 32);
+            label2.Text = "Lista Produtos";
             // 
             // label1
             // 
-            label1.Location = new Point(585, 80);
+            label1.Location = new Point(583, 79);
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(585, 105);
+            txtSearch.Location = new Point(583, 105);
             // 
             // dataGridView1
             // 
@@ -67,9 +70,9 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeight = 40;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dgvid, dgvName, dgvedit, dgvdel });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dgvid, dgvName, dgvPrice, dgvcatID, dgvcat, dgvedit, dgvdel });
             dataGridView1.GridColor = Color.FromArgb(231, 229, 255);
-            dataGridView1.Location = new Point(44, 162);
+            dataGridView1.Location = new Point(44, 153);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -82,8 +85,8 @@
             dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(826, 380);
-            dataGridView1.TabIndex = 5;
+            dataGridView1.Size = new Size(832, 372);
+            dataGridView1.TabIndex = 7;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // dgvid
@@ -98,11 +101,36 @@
             // dgvName
             // 
             dgvName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvName.HeaderText = "name";
+            dgvName.HeaderText = "Nome";
             dgvName.MinimumWidth = 6;
             dgvName.Name = "dgvName";
             dgvName.ReadOnly = true;
             dgvName.Resizable = DataGridViewTriState.False;
+            // 
+            // dgvPrice
+            // 
+            dgvPrice.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvPrice.HeaderText = "Preço";
+            dgvPrice.MinimumWidth = 6;
+            dgvPrice.Name = "dgvPrice";
+            dgvPrice.ReadOnly = true;
+            // 
+            // dgvcatID
+            // 
+            dgvcatID.HeaderText = "cID";
+            dgvcatID.MinimumWidth = 6;
+            dgvcatID.Name = "dgvcatID";
+            dgvcatID.ReadOnly = true;
+            dgvcatID.Visible = false;
+            dgvcatID.Width = 125;
+            // 
+            // dgvcat
+            // 
+            dgvcat.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvcat.HeaderText = "Categoria";
+            dgvcat.MinimumWidth = 6;
+            dgvcat.Name = "dgvcat";
+            dgvcat.ReadOnly = true;
             // 
             // dgvedit
             // 
@@ -130,15 +158,15 @@
             dgvdel.Resizable = DataGridViewTriState.False;
             dgvdel.Width = 50;
             // 
-            // frmTableView
+            // frmProductView
             // 
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(921, 565);
+            ClientSize = new Size(913, 551);
             Controls.Add(dataGridView1);
-            Name = "frmTableView";
-            Text = "frmTableView";
-            Load += frmTableView_Load;
+            Name = "frmProductView";
+            Text = "frmProductView";
+            Load += frmProductView_Load;
             Controls.SetChildIndex(label1, 0);
             Controls.SetChildIndex(txtSearch, 0);
             Controls.SetChildIndex(btnAdd, 0);
@@ -154,6 +182,9 @@
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn dgvid;
         private DataGridViewTextBoxColumn dgvName;
+        private DataGridViewTextBoxColumn dgvPrice;
+        private DataGridViewTextBoxColumn dgvcatID;
+        private DataGridViewTextBoxColumn dgvcat;
         private DataGridViewImageColumn dgvedit;
         private DataGridViewImageColumn dgvdel;
     }
