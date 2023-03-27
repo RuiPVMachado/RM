@@ -88,6 +88,7 @@ namespace RM.Model
                 txtPrice.Text = "";
                 cbCat.SelectedIndex = 0;
                 cbCat.SelectedIndex = -1;
+
                 txtName.Focus();
             }
         }
