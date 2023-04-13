@@ -117,6 +117,7 @@
             btnPOS.Text = "POS";
             btnPOS.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnPOS.UseVisualStyleBackColor = false;
+            btnPOS.Click += btnPOS_Click;
             // 
             // btnStaff
             // 
