@@ -52,8 +52,21 @@ namespace RM.Model
                     b.Size = new Size(134, 45);
                     b.Text = row["catName"].ToString();
 
+                    //para o clique nas categorias
+                    b.Click += new EventHandler(_Cick);
+
                     CategoryPanel.Controls.Add(b);
                 }
+            }
+        }
+
+        private void _Cick(object? sender, EventArgs e)
+        {
+            System.Windows.Forms.Button b = (System.Windows.Forms.Button)sender;
+            foreach (var item in ProductPanel.Controls)
+            {
+                var pro = (ucProduct)item;
+                pro.Visible = pro.PCategory.ToLower().Contains(b.Text.Trim().ToLower());
             }
         }
 
@@ -73,18 +86,31 @@ namespace RM.Model
             {
                 var wdg = (ucProduct)ss;
 
+                bool itemFound = false;
                 foreach (DataGridViewRow item in dataGridView1.Rows)
                 {
-                    //isto vai verificar se o produto ja esta la e depois adiciona um na quantidade e da update do preço
+                    // verifica se ja esta na tabela
                     if (Convert.ToInt32(item.Cells["dgvid"].Value) == wdg.id)
                     {
-                        item.Cells["dgvQty"].Value = int.Parse(item.Cells["dgvQty"].ToString()) + 1;
-                        item.Cells["dgvAmount"].Value = int.Parse(item.Cells["dgvQty"].ToString()) + 1;
-                        double.Parse(item.Cells["dgvPrice"].ToString());
+                        itemFound = true;
+
+                        //isto vai verificar se o produto ja esta la e depois adiciona um na quantidade e da update do preço
+                        int newQty = int.Parse(item.Cells["dgvQty"].Value.ToString()) + 1;
+                        double newAmount = newQty * double.Parse(item.Cells["dgvPrice"].Value.ToString());
+                        item.Cells["dgvQty"].Value = newQty;
+                        item.Cells["dgvAmount"].Value = newAmount;
+
+                        break;
                     }
-                    //esta linha adiciona um novo produto
-                    dataGridView1.Rows.Add(new object[] { 0, wdg.id, wdg.PName, 1, wdg.PPrice, wdg.PPrice });
                 }
+
+                if (!itemFound)
+                {
+                    //esta linha adiciona um novo produto
+                    dataGridView1.Rows.Add(new object[] { wdg.id, wdg.PName, 1, wdg.PPrice, wdg.PPrice });
+                }
+
+                GetTotal();
             };
         }
 
@@ -105,6 +131,27 @@ namespace RM.Model
 
                 AddItems(item["pID"].ToString(), item["pName"].ToString(), item["catName"].ToString(), item["pPrice"].ToString(), Image.FromStream(new MemoryStream(imagearray)));
             }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            foreach (var item in ProductPanel.Controls)
+            {
+                var pro = (ucProduct)item;
+                pro.Visible = pro.PName.ToLower().Contains(txtSearch.Text.Trim().ToLower());
+            }
+        }
+
+        private void GetTotal()
+        {
+            double tot = 0;
+            lblTotal.Text = "";
+            foreach (DataGridViewRow item in dataGridView1.Rows)
+            {
+                tot += double.Parse(item.Cells["dgvAmount"].Value.ToString());
+            }
+            lblTotal.Text = tot.ToString("N2");
+            return;
         }
     }
 }

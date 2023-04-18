@@ -45,18 +45,21 @@
             label1 = new Label();
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
+            lblTotal = new Label();
+            label2 = new Label();
             CategoryPanel = new FlowLayoutPanel();
             ProductPanel = new FlowLayoutPanel();
             dataGridView1 = new DataGridView();
-            txtSearch = new TextBox();
             dgvid = new DataGridViewTextBoxColumn();
             dgvName = new DataGridViewTextBoxColumn();
             dgvQty = new DataGridViewTextBoxColumn();
             dgvPrice = new DataGridViewTextBoxColumn();
             dgvAmount = new DataGridViewTextBoxColumn();
+            txtSearch = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnExit).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -216,11 +219,35 @@
             // panel2
             // 
             panel2.BackColor = SystemColors.ActiveCaption;
+            panel2.Controls.Add(lblTotal);
+            panel2.Controls.Add(label2);
             panel2.Dock = DockStyle.Bottom;
             panel2.Location = new Point(0, 593);
             panel2.Name = "panel2";
             panel2.Size = new Size(1372, 81);
             panel2.TabIndex = 1;
+            // 
+            // lblTotal
+            // 
+            lblTotal.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            lblTotal.AutoSize = true;
+            lblTotal.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTotal.Location = new Point(1196, 18);
+            lblTotal.Name = "lblTotal";
+            lblTotal.Size = new Size(164, 54);
+            lblTotal.TabIndex = 3;
+            lblTotal.Text = "0000.00";
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(1092, 18);
+            label2.Name = "label2";
+            label2.Size = new Size(107, 54);
+            label2.TabIndex = 2;
+            label2.Text = "Total";
             // 
             // CategoryPanel
             // 
@@ -233,9 +260,10 @@
             // ProductPanel
             // 
             ProductPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            ProductPanel.AutoScroll = true;
             ProductPanel.Location = new Point(157, 153);
             ProductPanel.Name = "ProductPanel";
-            ProductPanel.Size = new Size(771, 434);
+            ProductPanel.Size = new Size(694, 434);
             ProductPanel.TabIndex = 3;
             // 
             // dataGridView1
@@ -255,7 +283,7 @@
             dataGridView1.ColumnHeadersHeight = 40;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dgvid, dgvName, dgvQty, dgvPrice, dgvAmount });
             dataGridView1.GridColor = Color.FromArgb(231, 229, 255);
-            dataGridView1.Location = new Point(934, 153);
+            dataGridView1.Location = new Point(867, 153);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -268,17 +296,8 @@
             dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(426, 434);
+            dataGridView1.Size = new Size(493, 434);
             dataGridView1.TabIndex = 7;
-            // 
-            // txtSearch
-            // 
-            txtSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtSearch.Location = new Point(157, 117);
-            txtSearch.Name = "txtSearch";
-            txtSearch.PlaceholderText = "Pesquise Aqui";
-            txtSearch.Size = new Size(285, 30);
-            txtSearch.TabIndex = 8;
             // 
             // dgvid
             // 
@@ -288,6 +307,7 @@
             dgvid.Name = "dgvid";
             dgvid.ReadOnly = true;
             dgvid.Resizable = DataGridViewTriState.False;
+            dgvid.Visible = false;
             // 
             // dgvName
             // 
@@ -316,11 +336,21 @@
             // 
             // dgvAmount
             // 
+            dgvAmount.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvAmount.HeaderText = "Quantidade";
             dgvAmount.MinimumWidth = 6;
             dgvAmount.Name = "dgvAmount";
             dgvAmount.ReadOnly = true;
-            dgvAmount.Width = 125;
+            // 
+            // txtSearch
+            // 
+            txtSearch.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            txtSearch.Location = new Point(157, 117);
+            txtSearch.Name = "txtSearch";
+            txtSearch.PlaceholderText = "Pesquise Aqui";
+            txtSearch.Size = new Size(285, 30);
+            txtSearch.TabIndex = 8;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // frmPOS
             // 
@@ -342,6 +372,8 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)btnExit).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -374,5 +406,7 @@
         private DataGridViewTextBoxColumn dgvQty;
         private DataGridViewTextBoxColumn dgvPrice;
         private DataGridViewTextBoxColumn dgvAmount;
+        private Label lblTotal;
+        private Label label2;
     }
 }
