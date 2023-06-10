@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace RM.Model
 {
@@ -33,7 +34,7 @@ namespace RM.Model
                 cbCat.SelectedValue = cID;
             }
 
-            if (id>0)
+            if (id > 0)
             {
                 ForUpdateLoadData();
             }
@@ -55,7 +56,24 @@ namespace RM.Model
 
         public override void btnSave_Click(object sender, EventArgs e)
         {
+            if (txtName.Text == "" || txtPrice.Text == "" || cbCat.SelectedValue == null)
+            {
+                MessageBox.Show("Preencha todos os campos antes de guardar");
+                return;
+            }
+            try
+            {
+                            MainClass.isFieldValid(txtName.Text, "Nome");
+            MainClass.isFieldValid(txtPrice.Text, "Preço");
+            }
+            catch (InvalidDataException)
+            {
+                return;
+            }
+
+            
             string qry = "";
+
             if (id == 0) //inserir
             {
                 qry = "Insert into products Values(@Name, @Price , @Cat , @Img)";
@@ -71,6 +89,10 @@ namespace RM.Model
             temp.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
             imageByteArray = ms.ToArray();
 
+            if (txtPrice.Text.Contains(","))
+            {
+                txtPrice.Text = txtPrice.Text.Replace(",", ".");
+            }
 
             Hashtable ht = new Hashtable();
             ht.Add("@id", id);
@@ -91,6 +113,7 @@ namespace RM.Model
 
                 txtName.Focus();
             }
+
         }
         private void ForUpdateLoadData()
         {
@@ -107,7 +130,17 @@ namespace RM.Model
 
                 Byte[] imageArray = (byte[])(dt.Rows[0]["pImage"]);
                 byte[] imageByteArray = imageArray;
-                txtImage.Image = Image.FromStream(new  MemoryStream(imageArray));
+                txtImage.Image = Image.FromStream(new MemoryStream(imageArray));
+            }
+        }
+
+        private void txtPrice_TextChanged(object sender, EventArgs e)
+        {
+
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtPrice.Text, "[^0-9\\.,]|(?<=([.,]\\d{2}|\\.\\d{2}))\\d+"))
+            {
+                MessageBox.Show("Escreva SE.");
+                txtPrice.Text = txtPrice.Text.Remove(txtPrice.Text.Length - 1);
             }
         }
     }

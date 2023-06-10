@@ -19,8 +19,24 @@ namespace RM.Model
         }
 
         public int id = 0;
+
         public override void btnSave_Click(object sender, EventArgs e)
         {
+
+            if (txtName.Text == "")
+            {
+                MessageBox.Show("Preencha todos os campos antes de guardar");
+                return;
+            }
+            try
+            {
+                MainClass.isFieldValid(txtName.Text, "Nome");
+            }
+            catch (InvalidDataException)
+            {
+                return;
+            }
+
             string qry = "";
             if (id == 0) //inserir
             {
@@ -30,6 +46,8 @@ namespace RM.Model
             {
                 qry = "Update category Set catName = @Name where catID = @id ";
             }
+
+
             Hashtable ht = new Hashtable();
             ht.Add("@id", id);
             ht.Add("@Name", txtName.Text);

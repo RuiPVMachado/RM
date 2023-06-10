@@ -85,6 +85,7 @@
             txtPrice.Name = "txtPrice";
             txtPrice.Size = new Size(186, 30);
             txtPrice.TabIndex = 9;
+            txtPrice.TextChanged += txtPrice_TextChanged;
             // 
             // label3
             // 
@@ -107,9 +108,9 @@
             label2.AutoSize = true;
             label2.Location = new Point(21, 150);
             label2.Name = "label2";
-            label2.Size = new Size(56, 23);
+            label2.Size = new Size(57, 23);
             label2.TabIndex = 11;
-            label2.Text = "Name";
+            label2.Text = "Nome";
             // 
             // txtImage
             // 

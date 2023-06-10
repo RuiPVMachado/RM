@@ -11,6 +11,9 @@ namespace RM
 {
     internal class MainClass
     {
+
+        private const int FIELD_LIMIT = 50;
+
         public static SqlConnection con = new SqlConnection("Data Source=DESKTOP-066KIFU\\SQLEXPRESS;Initial Catalog=RM1;Integrated Security=True;Pooling=False; User ID=admin; Password=123;");
         //metodo para dar check ao username 
         public static bool IsValidUser(string user, string pass)
@@ -126,6 +129,17 @@ namespace RM
             cb.ValueMember = "id";
             cb.DataSource = dt;
             cb.SelectedIndex = -1;
+        }
+
+        //Saber o tamanho da string
+        public static void isFieldValid (string field, string label)
+        {
+            if (field.Length > FIELD_LIMIT)
+            {
+                MessageBox.Show("Limite do campo " + label + " é : " + FIELD_LIMIT );
+                throw new InvalidDataException("field is above limits");
+            }
+
         }
     }
 }

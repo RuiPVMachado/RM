@@ -84,6 +84,7 @@
             txtPhone.Name = "txtPhone";
             txtPhone.Size = new Size(186, 30);
             txtPhone.TabIndex = 1;
+            txtPhone.TextChanged += txtPhone_TextChanged;
             // 
             // label3
             // 

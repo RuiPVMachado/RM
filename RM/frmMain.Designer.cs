@@ -330,13 +330,5 @@
         private Button btnCategory;
         private Label lblUser;
         private Panel CenterPanel;
-        private Button button10;
-        private Button button9;
-        private Button button8;
-        private Button button7;
-        private Button button6;
-        private Button button5;
-
-
     }
 }

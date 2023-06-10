@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace RM.View
 {
@@ -26,6 +27,7 @@ namespace RM.View
 
         public void GetData()
         {
+
             string qry = "Select * From staff where sName like '%" + txtSearch.Text + "%' ";
             ListBox lb = new ListBox();
             lb.Items.Add(dgvid);

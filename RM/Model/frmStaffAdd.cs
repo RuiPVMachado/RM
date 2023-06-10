@@ -26,6 +26,22 @@ namespace RM.Model
         }
         public override void btnSave_Click(object sender, EventArgs e)
         {
+            if (txtName.Text == "" || txtPhone.Text == "" || cbRole.Text == "")
+            {
+                MessageBox.Show("Preencha todos os campos antes de guardar");
+                return;
+            }
+            try
+            {
+                MainClass.isFieldValid(txtName.Text, "Nome");
+                MainClass.isFieldValid(txtPhone.Text, "Número");
+            }
+            catch (InvalidDataException)
+            {
+                return;
+            }
+
+
             string qry = "";
             if (id == 0) //inserir
             {
@@ -49,6 +65,15 @@ namespace RM.Model
                 txtPhone.Text = "";
                 cbRole.SelectedIndex = -1;
                 txtName.Focus();
+            }
+        }
+
+        private void txtPhone_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtPhone.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Escreva só numeros.");
+                txtPhone.Text = txtPhone.Text.Remove(txtPhone.Text.Length - 1);
             }
         }
     }

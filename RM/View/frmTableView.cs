@@ -69,10 +69,6 @@ namespace RM.View
                     MessageBox.Show("Eliminado com Sucesso");
                     GetData();
                 }
-                else if (dialogResult == DialogResult.No)
-                {
-                    //nao faz nada
-                }
 
             }
         }

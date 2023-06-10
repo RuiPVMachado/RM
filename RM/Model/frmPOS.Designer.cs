@@ -50,12 +50,13 @@
             CategoryPanel = new FlowLayoutPanel();
             ProductPanel = new FlowLayoutPanel();
             dataGridView1 = new DataGridView();
+            txtSearch = new TextBox();
+            dgvproID = new DataGridViewTextBoxColumn();
             dgvid = new DataGridViewTextBoxColumn();
             dgvName = new DataGridViewTextBoxColumn();
             dgvQty = new DataGridViewTextBoxColumn();
             dgvPrice = new DataGridViewTextBoxColumn();
             dgvAmount = new DataGridViewTextBoxColumn();
-            txtSearch = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnExit).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -127,6 +128,7 @@
             btnDin.TabIndex = 8;
             btnDin.Text = "Din in";
             btnDin.UseVisualStyleBackColor = false;
+            btnDin.Click += btnDin_Click;
             // 
             // btnTake
             // 
@@ -137,6 +139,7 @@
             btnTake.TabIndex = 7;
             btnTake.Text = "Take Away";
             btnTake.UseVisualStyleBackColor = false;
+            btnTake.Click += btnTake_Click;
             // 
             // btnDelivery
             // 
@@ -147,6 +150,7 @@
             btnDelivery.TabIndex = 6;
             btnDelivery.Text = "Entregas";
             btnDelivery.UseVisualStyleBackColor = false;
+            btnDelivery.Click += btnDelivery_Click;
             // 
             // btnKot
             // 
@@ -159,6 +163,7 @@
             btnKot.TabIndex = 5;
             btnKot.Text = "\r\nKOT";
             btnKot.UseVisualStyleBackColor = false;
+            btnKot.Click += btnKot_Click;
             // 
             // btnBill
             // 
@@ -195,6 +200,7 @@
             btnNew.TabIndex = 2;
             btnNew.Text = "\r\nNovo";
             btnNew.UseVisualStyleBackColor = false;
+            btnNew.Click += btnNew_Click;
             // 
             // label1
             // 
@@ -263,7 +269,7 @@
             ProductPanel.AutoScroll = true;
             ProductPanel.Location = new Point(157, 153);
             ProductPanel.Name = "ProductPanel";
-            ProductPanel.Size = new Size(694, 434);
+            ProductPanel.Size = new Size(704, 434);
             ProductPanel.TabIndex = 3;
             // 
             // dataGridView1
@@ -281,7 +287,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeight = 40;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dgvid, dgvName, dgvQty, dgvPrice, dgvAmount });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dgvproID, dgvid, dgvName, dgvQty, dgvPrice, dgvAmount });
             dataGridView1.GridColor = Color.FromArgb(231, 229, 255);
             dataGridView1.Location = new Point(867, 153);
             dataGridView1.Name = "dataGridView1";
@@ -298,16 +304,34 @@
             dataGridView1.RowTemplate.Height = 29;
             dataGridView1.Size = new Size(493, 434);
             dataGridView1.TabIndex = 7;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // txtSearch
+            // 
+            txtSearch.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            txtSearch.Location = new Point(157, 117);
+            txtSearch.Name = "txtSearch";
+            txtSearch.PlaceholderText = "Pesquise Aqui";
+            txtSearch.Size = new Size(285, 30);
+            txtSearch.TabIndex = 8;
+            txtSearch.TextChanged += txtSearch_TextChanged;
+            // 
+            // dgvproID
+            // 
+            dgvproID.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvproID.HeaderText = "id";
+            dgvproID.MinimumWidth = 6;
+            dgvproID.Name = "dgvproID";
+            dgvproID.ReadOnly = true;
+            dgvproID.Resizable = DataGridViewTriState.False;
             // 
             // dgvid
             // 
-            dgvid.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvid.HeaderText = "id";
+            dgvid.HeaderText = "ProductID";
             dgvid.MinimumWidth = 6;
             dgvid.Name = "dgvid";
             dgvid.ReadOnly = true;
-            dgvid.Resizable = DataGridViewTriState.False;
-            dgvid.Visible = false;
+            dgvid.Width = 125;
             // 
             // dgvName
             // 
@@ -341,16 +365,6 @@
             dgvAmount.MinimumWidth = 6;
             dgvAmount.Name = "dgvAmount";
             dgvAmount.ReadOnly = true;
-            // 
-            // txtSearch
-            // 
-            txtSearch.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            txtSearch.Location = new Point(157, 117);
-            txtSearch.Name = "txtSearch";
-            txtSearch.PlaceholderText = "Pesquise Aqui";
-            txtSearch.Size = new Size(285, 30);
-            txtSearch.TabIndex = 8;
-            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // frmPOS
             // 
@@ -401,12 +415,13 @@
         private ucProduct ucProduct1;
         private ucProduct ucProduct2;
         public TextBox txtSearch;
+        private Label lblTotal;
+        private Label label2;
         private DataGridViewTextBoxColumn dgvid;
+        private DataGridViewTextBoxColumn dgvproID;
         private DataGridViewTextBoxColumn dgvName;
         private DataGridViewTextBoxColumn dgvQty;
         private DataGridViewTextBoxColumn dgvPrice;
         private DataGridViewTextBoxColumn dgvAmount;
-        private Label lblTotal;
-        private Label label2;
     }
 }
