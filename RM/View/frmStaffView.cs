@@ -9,35 +9,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace RM.View
 {
-    public partial class frmTableView : SampleView
+    public partial class frmStaffView : SampleView
     {
-        public frmTableView()
+        public frmStaffView()
         {
             InitializeComponent();
         }
-        public void GetData()
-        {
-            string qry = "Select * From tables where tName like '%" + txtSearch.Text + "%' ";
-            ListBox lb = new ListBox();
-            lb.Items.Add(dgvid);
-            lb.Items.Add(dgvName);
 
-            MainClass.LoadData(qry, dataGridView1, lb);
-        }
-        private void frmTableView_Load(object sender, EventArgs e)
+        private void frmStaffView_Load(object sender, EventArgs e)
         {
             GetData();
         }
 
+        public void GetData()
+        {
+
+            string qry = "Select * From staff where sName like '%" + txtSearch.Text + "%' ";
+            ListBox lb = new ListBox();
+            lb.Items.Add(dgvid);
+            lb.Items.Add(dgvName);
+            lb.Items.Add(dgvPhone);
+            lb.Items.Add(dgvRole);
+
+            MainClass.LoadData(qry, dataGridView1, lb);
+        }
+
         public override void btnAdd_Click(object sender, EventArgs e)
         {
-            //frmTableAdd frm = new frmTableAdd();
+            //frmCategoryAdd frm = new frmCategoryAdd();
             //frm.ShowDialog();
-
-            MainClass.BlurBackground(new frmTableAdd());
+            MainClass.BlurBackground(new Model.frmStaffAdd());
             GetData();
         }
 
@@ -51,9 +56,11 @@ namespace RM.View
 
             if (dataGridView1.CurrentCell.OwningColumn.Name == "dgvedit")
             {
-                frmTableAdd frm = new frmTableAdd();
+                frmStaffAdd frm = new frmStaffAdd();
                 frm.id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["dgvid"].Value);
                 frm.txtName.Text = Convert.ToString(dataGridView1.CurrentRow.Cells["dgvName"].Value);
+                frm.txtPhone.Text = Convert.ToString(dataGridView1.CurrentRow.Cells["dgvPhone"].Value);
+                frm.cbRole.Text = Convert.ToString(dataGridView1.CurrentRow.Cells["dgvRole"].Value);
                 MainClass.BlurBackground(frm);
                 GetData();
             }
@@ -63,7 +70,7 @@ namespace RM.View
                 if (dialogResult == DialogResult.Yes)
                 {
                     int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["dgvid"].Value);
-                    string qry = "Delete from tables where tid = " + id + " ";
+                    string qry = "Delete from staff where staffID = " + id + " ";
                     Hashtable ht = new Hashtable();
                     MainClass.SQL(qry, ht);
                     MessageBox.Show("Eliminado com Sucesso");
@@ -72,5 +79,6 @@ namespace RM.View
 
             }
         }
+
     }
 }

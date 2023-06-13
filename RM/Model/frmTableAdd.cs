@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.Logging;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,22 @@ namespace RM.Model
         public int id = 0;
         public override void btnSave_Click(object sender, EventArgs e)
         {
+            if (txtName.Text == "")
+            {
+                MessageBox.Show("Preencha todos os campos antes de guardar");
+                return;
+            }
+
+            try 
+            { 
+                MainClass.isFieldValid(txtName.Text, "Nome"); 
+            }
+            catch(InvalidDataException) 
+            {
+                return;
+            }
+
+
             string qry = "";
             if (id == 0) //inserir
             {

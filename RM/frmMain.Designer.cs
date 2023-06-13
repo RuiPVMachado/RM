@@ -101,6 +101,7 @@
             btnKitchen.Text = "Cozinha";
             btnKitchen.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnKitchen.UseVisualStyleBackColor = false;
+            btnKitchen.Click += btnKitchen_Click;
             // 
             // btnPOS
             // 
@@ -117,6 +118,7 @@
             btnPOS.Text = "POS";
             btnPOS.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnPOS.UseVisualStyleBackColor = false;
+            btnPOS.Click += btnPOS_Click;
             // 
             // btnStaff
             // 
@@ -133,6 +135,7 @@
             btnStaff.Text = "Staff";
             btnStaff.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnStaff.UseVisualStyleBackColor = false;
+            btnStaff.Click += btnStaff_Click;
             // 
             // btnTable
             // 
@@ -166,6 +169,7 @@
             brnProducts.Text = "Produtos";
             brnProducts.TextImageRelation = TextImageRelation.ImageBeforeText;
             brnProducts.UseVisualStyleBackColor = false;
+            brnProducts.Click += brnProducts_Click;
             // 
             // btnCategory
             // 
@@ -327,13 +331,5 @@
         private Button btnCategory;
         private Label lblUser;
         private Panel CenterPanel;
-        private Button button10;
-        private Button button9;
-        private Button button8;
-        private Button button7;
-        private Button button6;
-        private Button button5;
-
-
     }
 }

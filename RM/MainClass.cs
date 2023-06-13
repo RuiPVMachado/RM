@@ -11,20 +11,23 @@ namespace RM
 {
     internal class MainClass
     {
+
+        private const int FIELD_LIMIT = 50;
+
         public static SqlConnection con = new SqlConnection("Data Source=DESKTOP-066KIFU\\SQLEXPRESS;Initial Catalog=RM1;Integrated Security=True;Pooling=False; User ID=admin; Password=123;");
         //metodo para dar check ao username 
         public static bool IsValidUser(string user, string pass)
         {
-           bool isValid = false;
-           string qry = @"Select * from users where username = '" + user + "' and upass = '" + pass + "' ";
-           SqlCommand cmd = new SqlCommand(qry, con);
-           DataTable dt = new DataTable();
-           SqlDataAdapter da = new SqlDataAdapter(cmd);
-           da.Fill(dt);
+            bool isValid = false;
+            string qry = @"Select * from users where username = '" + user + "' and upass = '" + pass + "' ";
+            SqlCommand cmd = new SqlCommand(qry, con);
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
 
-           if(dt.Rows.Count >0)
+            if (dt.Rows.Count > 0)
             {
-                isValid= true;
+                isValid = true;
                 USER = dt.Rows[0]["uName"].ToString();
             }
             return isValid;
@@ -37,7 +40,7 @@ namespace RM
             get { return user; }
             private set { user = value; }
         }
-        
+
         //criar o crud
         public static int SQL(string qry, Hashtable ht)
         {
@@ -48,7 +51,7 @@ namespace RM
                 SqlCommand cmd = new SqlCommand(qry, con);
                 cmd.CommandType = CommandType.Text;
 
-                foreach(DictionaryEntry item in ht)
+                foreach (DictionaryEntry item in ht)
                 {
                     cmd.Parameters.AddWithValue(item.Key.ToString(), item.Value);
 
@@ -68,7 +71,7 @@ namespace RM
         }
 
         //carregar informaçoes da bd
-        public static void LoadData(string qry , DataGridView gv, ListBox lb)
+        public static void LoadData(string qry, DataGridView gv, ListBox lb)
         {
             try
             {
@@ -109,6 +112,32 @@ namespace RM
                 Model.Owner = Background;
                 Model.ShowDialog(Background);
                 Background.Dispose();
+            }
+
+        }
+
+        //completar o cb das categorias
+        public static void CBFill(string qry, ComboBox cb)
+        {
+            SqlCommand cmd = new SqlCommand(qry, con);
+            cmd.CommandType = CommandType.Text;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            cb.DisplayMember = "Name";
+            cb.ValueMember = "id";
+            cb.DataSource = dt;
+            cb.SelectedIndex = -1;
+        }
+
+        //Saber o tamanho da string
+        public static void isFieldValid (string field, string label)
+        {
+            if (field.Length > FIELD_LIMIT)
+            {
+                MessageBox.Show("Limite do campo " + label + " é : " + FIELD_LIMIT );
+                throw new InvalidDataException("field is above limits");
             }
 
         }

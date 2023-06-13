@@ -12,32 +12,35 @@ using System.Windows.Forms;
 
 namespace RM.View
 {
-    public partial class frmTableView : SampleView
+    public partial class frmProductView : SampleView
     {
-        public frmTableView()
+        public frmProductView()
         {
             InitializeComponent();
         }
+
+        private void frmProductView_Load(object sender, EventArgs e)
+        {
+            GetData();
+        }
         public void GetData()
         {
-            string qry = "Select * From tables where tName like '%" + txtSearch.Text + "%' ";
+            string qry = "select pID, pName, pPrice, CategoryID, c.catName from products p inner join category c on c.catID = p.CategoryID where pName like '%" + txtSearch.Text + "%' ";
             ListBox lb = new ListBox();
             lb.Items.Add(dgvid);
             lb.Items.Add(dgvName);
+            lb.Items.Add(dgvPrice);
+            lb.Items.Add(dgvcatID);
+            lb.Items.Add(dgvcat);
 
             MainClass.LoadData(qry, dataGridView1, lb);
-        }
-        private void frmTableView_Load(object sender, EventArgs e)
-        {
-            GetData();
         }
 
         public override void btnAdd_Click(object sender, EventArgs e)
         {
-            //frmTableAdd frm = new frmTableAdd();
+            //frmCategoryAdd frm = new frmCategoryAdd();
             //frm.ShowDialog();
-
-            MainClass.BlurBackground(new frmTableAdd());
+            MainClass.BlurBackground(new Model.frmProductAdd());
             GetData();
         }
 
@@ -50,10 +53,11 @@ namespace RM.View
         {
 
             if (dataGridView1.CurrentCell.OwningColumn.Name == "dgvedit")
-            {
-                frmTableAdd frm = new frmTableAdd();
+            {   
+                frmProductAdd frm = new frmProductAdd();
                 frm.id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["dgvid"].Value);
-                frm.txtName.Text = Convert.ToString(dataGridView1.CurrentRow.Cells["dgvName"].Value);
+                frm.cID = Convert.ToInt32(dataGridView1.CurrentRow.Cells["dgvcatID"].Value);
+
                 MainClass.BlurBackground(frm);
                 GetData();
             }
@@ -63,13 +67,12 @@ namespace RM.View
                 if (dialogResult == DialogResult.Yes)
                 {
                     int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["dgvid"].Value);
-                    string qry = "Delete from tables where tid = " + id + " ";
+                    string qry = "Delete from products where pID = " + id + " ";
                     Hashtable ht = new Hashtable();
                     MainClass.SQL(qry, ht);
                     MessageBox.Show("Eliminado com Sucesso");
                     GetData();
                 }
-
             }
         }
     }

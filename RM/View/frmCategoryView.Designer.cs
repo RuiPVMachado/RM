@@ -61,7 +61,7 @@
             dataGridView1.ColumnHeadersHeight = 40;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dgvid, dgvName, dgvedit, dgvdel });
             dataGridView1.GridColor = Color.FromArgb(231, 229, 255);
-            dataGridView1.Location = new Point(31, 187);
+            dataGridView1.Location = new Point(44, 187);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -74,7 +74,7 @@
             dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(865, 371);
+            dataGridView1.Size = new Size(805, 371);
             dataGridView1.TabIndex = 4;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
