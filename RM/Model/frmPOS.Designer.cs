@@ -304,7 +304,6 @@
             dataGridView1.RowTemplate.Height = 29;
             dataGridView1.Size = new Size(493, 434);
             dataGridView1.TabIndex = 7;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // txtSearch
             // 
@@ -319,7 +318,7 @@
             // dgvproID
             // 
             dgvproID.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvproID.HeaderText = "id";
+            dgvproID.HeaderText = "ProductID";
             dgvproID.MinimumWidth = 6;
             dgvproID.Name = "dgvproID";
             dgvproID.ReadOnly = true;
@@ -327,7 +326,7 @@
             // 
             // dgvid
             // 
-            dgvid.HeaderText = "ProductID";
+            dgvid.HeaderText = "id";
             dgvid.MinimumWidth = 6;
             dgvid.Name = "dgvid";
             dgvid.ReadOnly = true;
@@ -417,8 +416,8 @@
         public TextBox txtSearch;
         private Label lblTotal;
         private Label label2;
-        private DataGridViewTextBoxColumn dgvid;
         private DataGridViewTextBoxColumn dgvproID;
+        private DataGridViewTextBoxColumn dgvid;
         private DataGridViewTextBoxColumn dgvName;
         private DataGridViewTextBoxColumn dgvQty;
         private DataGridViewTextBoxColumn dgvPrice;

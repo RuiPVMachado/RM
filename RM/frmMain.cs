@@ -78,5 +78,10 @@ namespace RM
             frmPOS frm = new frmPOS();
             frm.Show();
         }
+
+        private void btnKitchen_Click(object sender, EventArgs e)
+        {
+            AddControls(new frmKitchenView());
+        }
     }
 }

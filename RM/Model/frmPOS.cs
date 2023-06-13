@@ -117,7 +117,9 @@ namespace RM.Model
                 if (!itemFound)
                 {
                     //esta linha adiciona um novo produto
-                    dataGridView1.Rows.Add(new object[] { wdg.id, 0, wdg.PName, 1, wdg.PPrice, wdg.PPrice });
+                    int counter = 1;
+                    dataGridView1.Rows.Add(new object[] { wdg.id, counter, wdg.PName, 1, wdg.PPrice, wdg.PPrice });
+                    counter++;
                 }
 
                 GetTotal();
@@ -138,7 +140,6 @@ namespace RM.Model
             {
                 Byte[] imagearray = (byte[])item["pImage"];
                 Byte[] imagebytearray = imagearray;
-
                 AddItems("0", item["pID"].ToString(), item["pName"].ToString(), item["catName"].ToString(), item["pPrice"].ToString(), Image.FromStream(new MemoryStream(imagearray)));
             }
         }
@@ -166,7 +167,7 @@ namespace RM.Model
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-           
+
             DialogResult dialogResult = MessageBox.Show("Tem a certeza?", "Pergunta", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -234,13 +235,14 @@ namespace RM.Model
             string qry1 = ""; //tabela principal
             string qry2 = ""; //tabela de detalhes
 
-            int detailID = 0;
+            int detailID;
 
-            if (String.IsNullOrEmpty(OrderType)) {
-            MessageBox.Show("Selecione primeiro um metodo de entrega");
+            if (String.IsNullOrEmpty(OrderType))
+            {
+                MessageBox.Show("Selecione primeiro um metodo de entrega");
                 return;
             }
-            
+
             if (MainID == 0) //inserir
             {
                 qry1 = @"Insert into tblMain Values(@aDate, @aTime, @TableName, @WaiterName, @status, @orderType, @total, @received, @change)
@@ -272,9 +274,9 @@ namespace RM.Model
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 detailID = Convert.ToInt32(row.Cells["dgvid"].Value);
-                if (detailID == 0) //insert
+                if (detailID != 0) //insert
                 {
-                    qry2 = @"Insert Into tblDetails (MainId, proId, qty, price, amount) Values (@MainID ,@proID ,@qty , @price, @amount)";
+                    qry2 = @"Insert Into tblDetails (MainId, proID, qty, price, amount) Values (@MainID ,@proID ,@qty , @price, @amount)";
                 }
                 else //update
                 {
@@ -293,24 +295,21 @@ namespace RM.Model
 
                 if (MainClass.con.State == ConnectionState.Closed) { MainClass.con.Open(); }
                 cmd2.ExecuteNonQuery();
-                if (MainClass.con.State == ConnectionState.Open) { MainClass.con.Close(); }
+                detailID -= 1;
+                
+            }
 
-                MessageBox.Show("Salvo com sucesso");
+            MessageBox.Show("Salvo com sucesso");
                 MainID = 0;
-                detailID = 0;
+                
                 dataGridView1.Rows.Clear();
                 lblTable.Text = "";
                 lblWaiter.Text = "";
                 lblTable.Visible = false;
                 lblWaiter.Visible = false;
                 lblTotal.Text = "0000.00";
-
-            }
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+                OrderType = "";
+            
         }
     }
 }

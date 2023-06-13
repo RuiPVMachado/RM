@@ -101,6 +101,7 @@
             btnKitchen.Text = "Cozinha";
             btnKitchen.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnKitchen.UseVisualStyleBackColor = false;
+            btnKitchen.Click += btnKitchen_Click;
             // 
             // btnPOS
             // 
