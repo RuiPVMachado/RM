@@ -45,18 +45,20 @@
             label1 = new Label();
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
+            btnCheckout = new Button();
             lblTotal = new Label();
             label2 = new Label();
             CategoryPanel = new FlowLayoutPanel();
             ProductPanel = new FlowLayoutPanel();
             dataGridView1 = new DataGridView();
-            txtSearch = new TextBox();
             dgvproID = new DataGridViewTextBoxColumn();
             dgvid = new DataGridViewTextBoxColumn();
             dgvName = new DataGridViewTextBoxColumn();
             dgvQty = new DataGridViewTextBoxColumn();
             dgvPrice = new DataGridViewTextBoxColumn();
             dgvAmount = new DataGridViewTextBoxColumn();
+            txtSearch = new TextBox();
+            allProducts = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnExit).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -176,6 +178,7 @@
             btnBill.TabIndex = 4;
             btnBill.Text = "\r\nLista de Faturamento";
             btnBill.UseVisualStyleBackColor = false;
+            btnBill.Click += btnBill_Click;
             // 
             // btnHold
             // 
@@ -225,6 +228,7 @@
             // panel2
             // 
             panel2.BackColor = SystemColors.ActiveCaption;
+            panel2.Controls.Add(btnCheckout);
             panel2.Controls.Add(lblTotal);
             panel2.Controls.Add(label2);
             panel2.Dock = DockStyle.Bottom;
@@ -232,6 +236,19 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(1372, 81);
             panel2.TabIndex = 1;
+            // 
+            // btnCheckout
+            // 
+            btnCheckout.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCheckout.BackColor = Color.FromArgb(22, 114, 184);
+            btnCheckout.ForeColor = Color.White;
+            btnCheckout.Location = new Point(900, 26);
+            btnCheckout.Name = "btnCheckout";
+            btnCheckout.Size = new Size(136, 43);
+            btnCheckout.TabIndex = 4;
+            btnCheckout.Text = "Check Out";
+            btnCheckout.UseVisualStyleBackColor = false;
+            btnCheckout.Click += btnCheckout_Click;
             // 
             // lblTotal
             // 
@@ -258,6 +275,7 @@
             // CategoryPanel
             // 
             CategoryPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            CategoryPanel.AutoScroll = true;
             CategoryPanel.Location = new Point(12, 153);
             CategoryPanel.Name = "CategoryPanel";
             CategoryPanel.Size = new Size(139, 434);
@@ -305,31 +323,25 @@
             dataGridView1.Size = new Size(493, 434);
             dataGridView1.TabIndex = 7;
             // 
-            // txtSearch
-            // 
-            txtSearch.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            txtSearch.Location = new Point(157, 117);
-            txtSearch.Name = "txtSearch";
-            txtSearch.PlaceholderText = "Pesquise Aqui";
-            txtSearch.Size = new Size(285, 30);
-            txtSearch.TabIndex = 8;
-            txtSearch.TextChanged += txtSearch_TextChanged;
-            // 
             // dgvproID
             // 
-            dgvproID.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvproID.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             dgvproID.HeaderText = "ProductID";
             dgvproID.MinimumWidth = 6;
             dgvproID.Name = "dgvproID";
             dgvproID.ReadOnly = true;
             dgvproID.Resizable = DataGridViewTriState.False;
+            dgvproID.Visible = false;
+            dgvproID.Width = 63;
             // 
             // dgvid
             // 
+            dgvid.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             dgvid.HeaderText = "id";
             dgvid.MinimumWidth = 6;
             dgvid.Name = "dgvid";
             dgvid.ReadOnly = true;
+            dgvid.Visible = false;
             dgvid.Width = 125;
             // 
             // dgvName
@@ -365,10 +377,32 @@
             dgvAmount.Name = "dgvAmount";
             dgvAmount.ReadOnly = true;
             // 
+            // txtSearch
+            // 
+            txtSearch.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            txtSearch.Location = new Point(157, 111);
+            txtSearch.Name = "txtSearch";
+            txtSearch.PlaceholderText = "Pesquise Aqui";
+            txtSearch.Size = new Size(285, 30);
+            txtSearch.TabIndex = 8;
+            txtSearch.TextChanged += txtSearch_TextChanged;
+            // 
+            // allProducts
+            // 
+            allProducts.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            allProducts.Location = new Point(12, 106);
+            allProducts.Name = "allProducts";
+            allProducts.Size = new Size(139, 41);
+            allProducts.TabIndex = 9;
+            allProducts.Text = "Todos os Produtos";
+            allProducts.UseVisualStyleBackColor = true;
+            allProducts.Click += allProducts_Click;
+            // 
             // frmPOS
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(1372, 674);
+            Controls.Add(allProducts);
             Controls.Add(txtSearch);
             Controls.Add(dataGridView1);
             Controls.Add(ProductPanel);
@@ -416,11 +450,13 @@
         public TextBox txtSearch;
         private Label lblTotal;
         private Label label2;
+        public Button btnCheckout;
         private DataGridViewTextBoxColumn dgvproID;
         private DataGridViewTextBoxColumn dgvid;
         private DataGridViewTextBoxColumn dgvName;
         private DataGridViewTextBoxColumn dgvQty;
         private DataGridViewTextBoxColumn dgvPrice;
         private DataGridViewTextBoxColumn dgvAmount;
+        private Button allProducts;
     }
 }
