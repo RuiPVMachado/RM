@@ -17,6 +17,10 @@ namespace RM.Model
         public frmPOS()
         {
             InitializeComponent();
+            if (lblTotal.Text == "0000.00")
+            {
+                btnCheckout.Visible = false;
+            }
         }
 
         public int MainID = 0;
@@ -50,6 +54,7 @@ namespace RM.Model
             {
                 foreach (DataRow row in dt.Rows)
                 {
+
                     System.Windows.Forms.Button b = new System.Windows.Forms.Button();
                     b.BackColor = Color.FromArgb(50, 55, 89);
                     b.Size = new Size(134, 45);
@@ -79,7 +84,14 @@ namespace RM.Model
                 pro.Visible = pro.PCategory.ToLower().Contains(b.Text.Trim().ToLower());
             }
         }
-
+        private void allProducts_Click(object sender, EventArgs e)
+        {
+            foreach (var item in ProductPanel.Controls)
+            {
+                var pro = (ucProduct)item;
+                pro.Visible = true;
+            }
+        }
         private void AddItems(string id, string proID, string name, string cat, string price, Image pimage)
         {
             var w = new ucProduct()
@@ -94,11 +106,13 @@ namespace RM.Model
 
             w.onSelect += (ss, ee) =>
             {
+                btnCheckout.Visible = true;
                 var wdg = (ucProduct)ss;
 
                 bool itemFound = false;
                 foreach (DataGridViewRow item in dataGridView1.Rows)
                 {
+
                     // verifica se ja esta na tabela
                     if (Convert.ToInt32(item.Cells["dgvproID"].Value) == wdg.id)
                     {
@@ -178,6 +192,7 @@ namespace RM.Model
                 dataGridView1.Rows.Clear();
                 MainID = 0;
                 lblTotal.Text = "0000.00";
+                btnCheckout.Visible = false;
             }
         }
 
@@ -242,7 +257,11 @@ namespace RM.Model
                 MessageBox.Show("Selecione primeiro um metodo de entrega");
                 return;
             }
-
+            if (lblTotal.Text == "0000.00")
+            {
+                MessageBox.Show("O valor total é de 0 ");
+                return;
+            }
             if (MainID == 0) //inserir
             {
                 qry1 = @"Insert into tblMain Values(@aDate, @aTime, @TableName, @WaiterName, @status, @orderType, @total, @received, @change)
@@ -296,20 +315,109 @@ namespace RM.Model
                 if (MainClass.con.State == ConnectionState.Closed) { MainClass.con.Open(); }
                 cmd2.ExecuteNonQuery();
                 detailID -= 1;
-                
+
             }
 
             MessageBox.Show("Salvo com sucesso");
-                MainID = 0;
-                
-                dataGridView1.Rows.Clear();
-                lblTable.Text = "";
-                lblWaiter.Text = "";
-                lblTable.Visible = false;
-                lblWaiter.Visible = false;
-                lblTotal.Text = "0000.00";
-                OrderType = "";
-            
+            MainID = 0;
+            dataGridView1.Rows.Clear();
+            lblTable.Text = "";
+            lblWaiter.Text = "";
+            lblTable.Visible = false;
+            lblWaiter.Visible = false;
+            lblTotal.Text = "0000.00";
+            OrderType = "";
+            btnCheckout.Visible = false;
+
         }
+        public int id = 0;
+
+        private void btnBill_Click(object sender, EventArgs e)
+        {
+            frmBillList frm = new frmBillList();
+            MainClass.BlurBackground(frm);
+
+            if (frm.MainID > 0)
+            {
+                id = frm.MainID;
+                LoadEntries();
+            }
+        }
+        private void LoadEntries()
+        {
+            string qry = @"SELECT * FROM tblMain m 
+                INNER JOIN tblDetails d ON m.MainID = d.MainID 
+                INNER JOIN products p ON p.pID = d.proID  
+                WHERE m.MainID = " + id;
+
+
+            SqlCommand cmd = new SqlCommand(qry, MainClass.con);
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+
+            if (dt.Rows[0]["orderType"].ToString() == "Delivery")
+            {
+                lblWaiter.Visible = false;
+                lblTable.Visible = false;
+            }
+            else if (dt.Rows[0]["orderType"].ToString() == "Take away")
+            {
+                lblWaiter.Visible = false;
+                lblTable.Visible = false;
+            }
+            else
+            {
+                lblWaiter.Visible = true;
+                lblTable.Visible = true;
+            }
+
+
+            dataGridView1.Rows.Clear();
+
+            foreach (DataRow item in dt.Rows)
+            {
+                lblTable.Text = item["TableName"].ToString();
+                lblWaiter.Text = item["WaiterName"].ToString();
+
+
+
+                string detailID = item["DetailID"].ToString();
+                string pName = item["pName"].ToString();
+                string proID = item["proID"].ToString();
+                string qty = item["qty"].ToString();
+                string price = item["price"].ToString();
+                string amount = item["amount"].ToString();
+
+
+                object[] obj = { detailID, proID, pName, qty, price, amount };
+                dataGridView1.Rows.Add(obj);
+            }
+            btnCheckout.Visible = true;
+            GetTotal();
+        }
+
+
+        private void btnCheckout_Click(object sender, EventArgs e)
+        {
+            frmCheckout frm = new frmCheckout();
+            frm.MainID = id;
+            frm.amount = Convert.ToDouble(lblTotal.Text);
+            MainClass.BlurBackground(frm);
+
+
+            MainID = 0;
+            dataGridView1.Rows.Clear();
+            lblTable.Text = "";
+            lblWaiter.Text = "";
+            lblTable.Visible = false;
+            lblWaiter.Visible = false;
+            lblTotal.Text = "0000.00";
+            OrderType = "";
+            btnCheckout.Visible = false;
+
+        }
+
+
     }
 }

@@ -147,7 +147,6 @@ namespace RM.View
                 if (MainClass.SQL(qry,ht)> 0)
                 {
                     GetOrders();
-                    MessageBox.Show("Salvo com sucesso");
                     return;
 
                 }
