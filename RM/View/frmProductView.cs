@@ -53,7 +53,7 @@ namespace RM.View
         {
 
             if (dataGridView1.CurrentCell.OwningColumn.Name == "dgvedit")
-            {   
+            {
                 frmProductAdd frm = new frmProductAdd();
                 frm.id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["dgvid"].Value);
                 frm.cID = Convert.ToInt32(dataGridView1.CurrentRow.Cells["dgvcatID"].Value);

@@ -57,7 +57,7 @@ namespace RM.Model
 
                     System.Windows.Forms.Button b = new System.Windows.Forms.Button();
                     b.BackColor = Color.FromArgb(50, 55, 89);
-                    b.Size = new Size(134, 45);
+                    b.Size = new Size(150, 60);
                     b.Text = row["catName"].ToString();
 
                     //para o clique nas categorias

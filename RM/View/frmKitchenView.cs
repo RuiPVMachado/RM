@@ -52,7 +52,7 @@ namespace RM.View
                 FlowLayoutPanel p2 = new FlowLayoutPanel();
                 p2 = new FlowLayoutPanel();
                 p2.BackColor = Color.FromArgb(50, 55, 90);
-                p2.AutoSize = true;
+                p2.AutoSize = false;
                 p2.Width = 230;
                 p2.Height = 125;
                 p2.FlowDirection = FlowDirection.TopDown;

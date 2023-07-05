@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             panel1 = new Panel();
-            btnSettings = new Button();
+            btnReports = new Button();
             btnKitchen = new Button();
             btnPOS = new Button();
             btnStaff = new Button();
@@ -54,7 +54,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.Highlight;
-            panel1.Controls.Add(btnSettings);
+            panel1.Controls.Add(btnReports);
             panel1.Controls.Add(btnKitchen);
             panel1.Controls.Add(btnPOS);
             panel1.Controls.Add(btnStaff);
@@ -70,21 +70,22 @@
             panel1.Size = new Size(287, 778);
             panel1.TabIndex = 0;
             // 
-            // btnSettings
+            // btnReports
             // 
-            btnSettings.AccessibleRole = AccessibleRole.RadioButton;
-            btnSettings.AutoEllipsis = true;
-            btnSettings.BackColor = Color.Transparent;
-            btnSettings.FlatStyle = FlatStyle.Flat;
-            btnSettings.Image = (Image)resources.GetObject("btnSettings.Image");
-            btnSettings.ImageAlign = ContentAlignment.MiddleRight;
-            btnSettings.Location = new Point(54, 769);
-            btnSettings.Name = "btnSettings";
-            btnSettings.Size = new Size(188, 64);
-            btnSettings.TabIndex = 8;
-            btnSettings.Text = "Definições";
-            btnSettings.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnSettings.UseVisualStyleBackColor = false;
+            btnReports.AccessibleRole = AccessibleRole.RadioButton;
+            btnReports.AutoEllipsis = true;
+            btnReports.BackColor = Color.Transparent;
+            btnReports.FlatStyle = FlatStyle.Flat;
+            btnReports.Image = (Image)resources.GetObject("btnReports.Image");
+            btnReports.ImageAlign = ContentAlignment.MiddleRight;
+            btnReports.Location = new Point(54, 769);
+            btnReports.Name = "btnReports";
+            btnReports.Size = new Size(188, 64);
+            btnReports.TabIndex = 8;
+            btnReports.Text = "Relatórios";
+            btnReports.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnReports.UseVisualStyleBackColor = false;
+            btnReports.Click += btnReports_Click;
             // 
             // btnKitchen
             // 
@@ -322,7 +323,7 @@
         private PictureBox pictureBox1;
         private Label label1;
         private Button btnHome;
-        private Button btnSettings;
+        private Button btnReports;
         private Button btnKitchen;
         private Button btnPOS;
         private Button btnStaff;

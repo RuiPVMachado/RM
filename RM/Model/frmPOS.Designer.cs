@@ -40,7 +40,6 @@
             btnDelivery = new Button();
             btnKot = new Button();
             btnBill = new Button();
-            btnHold = new Button();
             btnNew = new Button();
             label1 = new Label();
             pictureBox1 = new PictureBox();
@@ -77,7 +76,6 @@
             panel1.Controls.Add(btnDelivery);
             panel1.Controls.Add(btnKot);
             panel1.Controls.Add(btnBill);
-            panel1.Controls.Add(btnHold);
             panel1.Controls.Add(btnNew);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(pictureBox1);
@@ -101,6 +99,7 @@
             // 
             // lblWaiter
             // 
+            lblWaiter.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblWaiter.AutoSize = true;
             lblWaiter.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
             lblWaiter.Location = new Point(993, 49);
@@ -112,6 +111,7 @@
             // 
             // lblTable
             // 
+            lblTable.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblTable.AutoSize = true;
             lblTable.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
             lblTable.Location = new Point(993, 12);
@@ -123,6 +123,7 @@
             // 
             // btnDin
             // 
+            btnDin.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnDin.BackColor = Color.FromArgb(22, 114, 184);
             btnDin.Location = new Point(867, 12);
             btnDin.Name = "btnDin";
@@ -134,6 +135,7 @@
             // 
             // btnTake
             // 
+            btnTake.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnTake.BackColor = Color.FromArgb(22, 114, 184);
             btnTake.Location = new Point(773, 12);
             btnTake.Name = "btnTake";
@@ -145,6 +147,7 @@
             // 
             // btnDelivery
             // 
+            btnDelivery.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnDelivery.BackColor = Color.FromArgb(22, 114, 184);
             btnDelivery.Location = new Point(674, 12);
             btnDelivery.Name = "btnDelivery";
@@ -159,7 +162,7 @@
             btnKot.BackColor = Color.FromArgb(22, 114, 184);
             btnKot.Image = (Image)resources.GetObject("btnKot.Image");
             btnKot.ImageAlign = ContentAlignment.TopCenter;
-            btnKot.Location = new Point(581, 12);
+            btnKot.Location = new Point(403, 8);
             btnKot.Name = "btnKot";
             btnKot.Size = new Size(78, 78);
             btnKot.TabIndex = 5;
@@ -172,7 +175,7 @@
             btnBill.BackColor = Color.FromArgb(22, 114, 184);
             btnBill.Image = (Image)resources.GetObject("btnBill.Image");
             btnBill.ImageAlign = ContentAlignment.TopCenter;
-            btnBill.Location = new Point(449, 9);
+            btnBill.Location = new Point(270, 8);
             btnBill.Name = "btnBill";
             btnBill.Size = new Size(117, 78);
             btnBill.TabIndex = 4;
@@ -180,24 +183,12 @@
             btnBill.UseVisualStyleBackColor = false;
             btnBill.Click += btnBill_Click;
             // 
-            // btnHold
-            // 
-            btnHold.BackColor = Color.FromArgb(22, 114, 184);
-            btnHold.Image = Properties.Resources.hold;
-            btnHold.ImageAlign = ContentAlignment.TopCenter;
-            btnHold.Location = new Point(355, 9);
-            btnHold.Name = "btnHold";
-            btnHold.Size = new Size(78, 78);
-            btnHold.TabIndex = 3;
-            btnHold.Text = "\r\nSegurar";
-            btnHold.UseVisualStyleBackColor = false;
-            // 
             // btnNew
             // 
             btnNew.BackColor = Color.FromArgb(22, 114, 184);
             btnNew.Image = Properties.Resources.newTicket;
             btnNew.ImageAlign = ContentAlignment.TopCenter;
-            btnNew.Location = new Point(261, 9);
+            btnNew.Location = new Point(177, 8);
             btnNew.Name = "btnNew";
             btnNew.Size = new Size(78, 78);
             btnNew.TabIndex = 2;
@@ -275,19 +266,18 @@
             // CategoryPanel
             // 
             CategoryPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            CategoryPanel.AutoScroll = true;
             CategoryPanel.Location = new Point(12, 153);
             CategoryPanel.Name = "CategoryPanel";
-            CategoryPanel.Size = new Size(139, 434);
+            CategoryPanel.Size = new Size(159, 434);
             CategoryPanel.TabIndex = 2;
             // 
             // ProductPanel
             // 
             ProductPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             ProductPanel.AutoScroll = true;
-            ProductPanel.Location = new Point(157, 153);
+            ProductPanel.Location = new Point(204, 153);
             ProductPanel.Name = "ProductPanel";
-            ProductPanel.Size = new Size(704, 434);
+            ProductPanel.Size = new Size(690, 434);
             ProductPanel.TabIndex = 3;
             // 
             // dataGridView1
@@ -307,7 +297,7 @@
             dataGridView1.ColumnHeadersHeight = 40;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dgvproID, dgvid, dgvName, dgvQty, dgvPrice, dgvAmount });
             dataGridView1.GridColor = Color.FromArgb(231, 229, 255);
-            dataGridView1.Location = new Point(867, 153);
+            dataGridView1.Location = new Point(900, 153);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -320,7 +310,7 @@
             dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(493, 434);
+            dataGridView1.Size = new Size(460, 434);
             dataGridView1.TabIndex = 7;
             // 
             // dgvproID
@@ -356,7 +346,7 @@
             // dgvQty
             // 
             dgvQty.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvQty.HeaderText = "Qty";
+            dgvQty.HeaderText = "Quantidade";
             dgvQty.MinimumWidth = 6;
             dgvQty.Name = "dgvQty";
             dgvQty.ReadOnly = true;
@@ -372,7 +362,7 @@
             // dgvAmount
             // 
             dgvAmount.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvAmount.HeaderText = "Quantidade";
+            dgvAmount.HeaderText = "Total";
             dgvAmount.MinimumWidth = 6;
             dgvAmount.Name = "dgvAmount";
             dgvAmount.ReadOnly = true;
@@ -380,7 +370,7 @@
             // txtSearch
             // 
             txtSearch.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            txtSearch.Location = new Point(157, 111);
+            txtSearch.Location = new Point(204, 111);
             txtSearch.Name = "txtSearch";
             txtSearch.PlaceholderText = "Pesquise Aqui";
             txtSearch.Size = new Size(285, 30);
@@ -389,13 +379,15 @@
             // 
             // allProducts
             // 
+            allProducts.BackColor = Color.FromArgb(22, 114, 184);
             allProducts.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            allProducts.ForeColor = Color.Black;
             allProducts.Location = new Point(12, 106);
             allProducts.Name = "allProducts";
-            allProducts.Size = new Size(139, 41);
+            allProducts.Size = new Size(159, 41);
             allProducts.TabIndex = 9;
             allProducts.Text = "Todos os Produtos";
-            allProducts.UseVisualStyleBackColor = true;
+            allProducts.UseVisualStyleBackColor = false;
             allProducts.Click += allProducts_Click;
             // 
             // frmPOS
@@ -438,7 +430,6 @@
         private Button btnDelivery;
         private Button btnKot;
         private Button btnBill;
-        private Button btnHold;
         private PictureBox btnExit;
         private Label lblWaiter;
         private Label lblTable;
@@ -451,12 +442,12 @@
         private Label lblTotal;
         private Label label2;
         public Button btnCheckout;
+        private Button allProducts;
         private DataGridViewTextBoxColumn dgvproID;
         private DataGridViewTextBoxColumn dgvid;
         private DataGridViewTextBoxColumn dgvName;
         private DataGridViewTextBoxColumn dgvQty;
         private DataGridViewTextBoxColumn dgvPrice;
         private DataGridViewTextBoxColumn dgvAmount;
-        private Button allProducts;
     }
 }
