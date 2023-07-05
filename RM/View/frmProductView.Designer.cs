@@ -96,6 +96,7 @@
             dgvid.Name = "dgvid";
             dgvid.ReadOnly = true;
             dgvid.Resizable = DataGridViewTriState.False;
+            dgvid.Visible = false;
             dgvid.Width = 125;
             // 
             // dgvName
