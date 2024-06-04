@@ -21,6 +21,7 @@ namespace RM.Model
 
         public double amount;
         public int MainID = 0;
+
         private void textReceived_TextChanged(object sender, EventArgs e)
         {
             double amount = 0;

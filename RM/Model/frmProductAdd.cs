@@ -20,6 +20,7 @@ namespace RM.Model
             InitializeComponent();
         }
 
+
         public int id = 0;
         public int cID = 0;
         private void frmProductAdd_Load(object sender, EventArgs e)

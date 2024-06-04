@@ -13,6 +13,7 @@ namespace RM
     public partial class frmHome : Form
     {
         public frmHome()
+
         {
             InitializeComponent();
         }

@@ -15,6 +15,7 @@ namespace RM
         public SampleAdd()
         {
             InitializeComponent();
+
         }
 
         public virtual void btnClose_Click(object sender, EventArgs e)

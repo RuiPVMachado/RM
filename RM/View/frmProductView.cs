@@ -22,6 +22,7 @@ namespace RM.View
         private void frmProductView_Load(object sender, EventArgs e)
         {
             GetData();
+
         }
         public void GetData()
         {

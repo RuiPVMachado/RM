@@ -22,6 +22,7 @@ namespace RM.View
         {
             frmSales frm = new frmSales();
             frm.ShowDialog();
+
         }
     }
 }

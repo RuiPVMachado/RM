@@ -26,6 +26,7 @@ namespace RM.Model
             {
                 MessageBox.Show("Preencha todos os campos antes de guardar");
                 return;
+
             }
 
             try 

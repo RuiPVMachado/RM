@@ -19,6 +19,7 @@ namespace RM.Model
         }
 
         public string waiterName;
+
         private void frmWaiterSelect_Load(object sender, EventArgs e)
         {
             string qry = "Select * from staff where sRole = 'Empregado de Mesa'";

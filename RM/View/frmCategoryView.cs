@@ -26,6 +26,7 @@ namespace RM.View
             lb.Items.Add(dgvid);
             lb.Items.Add(dgvName);
 
+
             MainClass.LoadData(qry, dataGridView1, lb);
         }
 
