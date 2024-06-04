@@ -21,6 +21,7 @@ namespace RM.Model
         public int id = 0;
 
         public override void btnSave_Click(object sender, EventArgs e)
+
         {
 
             if (txtName.Text == "")

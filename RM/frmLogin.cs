@@ -23,6 +23,7 @@ namespace RM
                 this.Hide();
                 frmMain frm = new frmMain();
                 frm.Show();
+
             }
         }
     }

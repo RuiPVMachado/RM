@@ -20,6 +20,7 @@ namespace RM.Model
 
         public string TableName;
 
+
         private void frmTableSelect_Load(object sender, EventArgs e)
         {
             string qry = "Select * from tables";

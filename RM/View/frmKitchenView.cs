@@ -28,6 +28,7 @@ namespace RM.View
             }
         }
 
+
         private void GetOrders()
         {
             flowLayoutPanel1.Controls.Clear();

@@ -15,6 +15,7 @@ namespace RM
         public frmPrint()
         {
             InitializeComponent();
+
         }
     }
 }

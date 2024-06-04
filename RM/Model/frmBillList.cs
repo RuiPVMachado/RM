@@ -15,6 +15,7 @@ namespace RM.Model
     {
         public frmBillList()
         {
+
             InitializeComponent();
         }
         public int MainID = 0;

@@ -88,5 +88,6 @@ namespace RM
         {
             AddControls(new frmReports());
         }
+
     }
 }

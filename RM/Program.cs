@@ -12,6 +12,7 @@ namespace RM
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new frmLogin());
+
         }
     }
 }

@@ -25,6 +25,7 @@ namespace RM.View
             GetData();
         }
 
+
         public void GetData()
         {
 
