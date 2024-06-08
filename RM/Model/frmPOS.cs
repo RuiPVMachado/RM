@@ -418,7 +418,60 @@ namespace RM.Model
 
         }
 
+        private void SaveDataTableToCSV(DataTable dataTable, string filePath)
+        {
+            if (dataTable.Rows.Count == 0)
+            {
+                MessageBox.Show("Nenhum produto encontrado para exportar.");
+                return;
+            }
 
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                // Escrever cabeçalhos das colunas
+                foreach (DataColumn column in dataTable.Columns)
+                {
+                    writer.Write(column.ColumnName + ",");
+                }
+                writer.WriteLine();
+
+                // Escrever linhas de dados
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    foreach (var item in row.ItemArray)
+                    {
+                        writer.Write(item.ToString() + ",");
+                    }
+                    writer.WriteLine();
+                }
+            }
+
+            MessageBox.Show("Arquivo CSV exportado com sucesso para " + filePath);
+        }
+        private void CreateCSV_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT * FROM Products"; // Ajuste o nome da tabela conforme necessário
+            DataTable dataTable = new DataTable();
+
+            using (SqlConnection connection = MainClass.con)
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                connection.Open();
+                adapter.Fill(dataTable);
+            }
+
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "CSV file (*.csv)|*.csv";
+                saveFileDialog.Title = "Salvar arquivo CSV";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    SaveDataTableToCSV(dataTable, saveFileDialog.FileName);
+                }
+            }
+
+        }
     }
 
 }
