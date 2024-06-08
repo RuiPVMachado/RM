@@ -58,6 +58,7 @@
             dgvAmount = new DataGridViewTextBoxColumn();
             txtSearch = new TextBox();
             allProducts = new Button();
+            CreateCSV = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnExit).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -68,6 +69,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.Controls.Add(CreateCSV);
             panel1.Controls.Add(btnExit);
             panel1.Controls.Add(lblWaiter);
             panel1.Controls.Add(lblTable);
@@ -390,6 +392,18 @@
             allProducts.UseVisualStyleBackColor = false;
             allProducts.Click += allProducts_Click;
             // 
+            // CreateCSV
+            // 
+            CreateCSV.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            CreateCSV.BackColor = Color.FromArgb(22, 114, 184);
+            CreateCSV.Location = new Point(531, 12);
+            CreateCSV.Name = "CreateCSV";
+            CreateCSV.Size = new Size(84, 78);
+            CreateCSV.TabIndex = 12;
+            CreateCSV.Text = "Criar CSV";
+            CreateCSV.UseVisualStyleBackColor = false;
+            CreateCSV.Click += CreateCSV_Click;
+            // 
             // frmPOS
             // 
             AutoScaleMode = AutoScaleMode.None;
@@ -449,5 +463,6 @@
         private DataGridViewTextBoxColumn dgvQty;
         private DataGridViewTextBoxColumn dgvPrice;
         private DataGridViewTextBoxColumn dgvAmount;
+        private Button CreateCSV;
     }
 }
